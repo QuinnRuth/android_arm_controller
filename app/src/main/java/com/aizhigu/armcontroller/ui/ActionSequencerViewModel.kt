@@ -99,11 +99,13 @@ class ActionSequencerViewModel(
         }
     }
 
-    suspend fun saveProject() {
-        _currentProject.value?.let { proj ->
-            val updated = proj.copy(frames = _frames.value)
-            actionDao.insertProject(updated)
-            _currentProject.value = updated
+    fun saveProject() {
+        viewModelScope.launch {
+            _currentProject.value?.let { proj ->
+                val updated = proj.copy(frames = _frames.value)
+                actionDao.insertProject(updated)
+                _currentProject.value = updated
+            }
         }
     }
 

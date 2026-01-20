@@ -20,8 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.aizhigu.armcontroller.data.ActionFrame
-import com.aizhigu.armcontroller.ui.theme.Pink80
-import com.aizhigu.armcontroller.ui.theme.Purple40
+
 
 // Custom Cyberpunk Colors
 val CyberBlack = Color(0xFF0D0D0D)
