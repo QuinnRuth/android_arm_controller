@@ -11,6 +11,8 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import com.aizhigu.armcontroller.data.ToxParser
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import java.util.UUID
 
@@ -113,7 +115,7 @@ class ActionSequencerViewModel(
         try {
             val newFrames = ToxParser.parse(content)
             if (newFrames.isNotEmpty()) {
-                _frames.value = _frames.value + newFrames
+                _frames.update { it + newFrames }
             }
         } catch (e: Exception) {
             e.printStackTrace()
