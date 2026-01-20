@@ -109,6 +109,26 @@ class ActionSequencerViewModel(
         }
     }
 
+    fun importTox(content: String) {
+        try {
+            val newFrames = ToxParser.parse(content)
+            if (newFrames.isNotEmpty()) {
+                _frames.value = _frames.value + newFrames
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    fun captureFrame(currentServos: List<Int>) {
+        // Create frame from current servo values
+        val newFrame = ActionFrame(
+            servos = currentServos,
+            duration = 1000
+        )
+        addFrame(newFrame)
+    }
+
     // ========== Runner Logic ==========
 
     fun togglePlay(loop: Boolean = false) {
@@ -119,6 +139,33 @@ class ActionSequencerViewModel(
         }
     }
 
+    fun startLoop() {
+        if (_isPlaying.value) stop()
+        play(loop = true)
+    }
+
+    fun playSingleStep() {
+        if (_frames.value.isEmpty()) return
+        
+        // Determine next index (circular)
+        val nextIndex = if (_currentPlayingIndex.value == -1) 0 
+                        else (_currentPlayingIndex.value + 1) % _frames.value.size
+        
+        _isPlaying.value = true // Show as playing
+        runnerJob?.cancel()
+        runnerJob = viewModelScope.launch {
+            try {
+                _currentPlayingIndex.value = nextIndex
+                val frame = _frames.value[nextIndex]
+                executeFrame(frame)
+                delay(frame.duration.toLong())
+            } finally {
+                _isPlaying.value = false
+                // Do NOT reset index, so next step continues from here
+            }
+        }
+    }
+
     private fun play(loop: Boolean) {
         if (_frames.value.isEmpty()) return
         
@@ -126,17 +173,23 @@ class ActionSequencerViewModel(
         runnerJob?.cancel()
         runnerJob = viewModelScope.launch {
             try {
+                // If stepping, start from current index, else from 0
+                var startIndex = if (_currentPlayingIndex.value != -1) _currentPlayingIndex.value else 0
+                // If at end, start over
+                if (startIndex >= _frames.value.size - 1) startIndex = 0
+
                 do {
-                    _frames.value.forEachIndexed { index, frame ->
+                    // Iterate from startIndex to end
+                    for (index in startIndex until _frames.value.size) {
+                        if (!isActive) break 
+                        val frame = _frames.value[index]
                         _currentPlayingIndex.value = index
                         
-                        // Execute Frame
                         executeFrame(frame)
-                        
-                        // Wait for duration
                         delay(frame.duration.toLong())
                     }
-                } while (loop && _isPlaying.value)
+                    startIndex = 0 // Next loop starts from 0
+                } while (loop && _isPlaying.value && isActive)
             } finally {
                 stop()
             }

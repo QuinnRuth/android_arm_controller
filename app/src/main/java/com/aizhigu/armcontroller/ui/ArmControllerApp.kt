@@ -91,7 +91,10 @@ fun ArmControllerApp(
             if (selectedTab == 0) {
                 ManualControlScreen(viewModel)
             } else {
-                SequencerScreen(sequencerViewModel)
+                SequencerScreen(
+                    viewModel = sequencerViewModel,
+                    currentServoValues = viewModel.servoValues.toList()
+                )
             }
         }
     }
@@ -116,44 +119,32 @@ fun ManualControlScreen(viewModel: ArmViewModel) {
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
-        // 急停按钮区域
+        // 控制按钮区域
         Row(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(12.dp)
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            Button(
-                onClick = { viewModel.emergencyStop() },
-                modifier = Modifier.weight(1f).height(60.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFD32F2F)),
-                shape = RoundedCornerShape(12.dp)
-            ) {
-                Icon(Icons.Filled.Warning, contentDescription = null)
-                Spacer(Modifier.width(8.dp))
-                Text("急停 STOP", fontSize = 18.sp, fontWeight = FontWeight.Bold)
-            }
-            
             Button(
                 onClick = { viewModel.centerAll() },
-                modifier = Modifier.weight(1f).height(60.dp),
+                modifier = Modifier.weight(1f).height(44.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF1976D2)),
-                shape = RoundedCornerShape(12.dp)
+                shape = RoundedCornerShape(8.dp)
             ) {
-                Icon(Icons.Filled.Refresh, contentDescription = null)
-                Spacer(Modifier.width(8.dp))
-                Text("复位", fontSize = 18.sp, fontWeight = FontWeight.Bold)
+                Icon(Icons.Filled.Refresh, contentDescription = null, modifier = Modifier.size(18.dp))
+                Spacer(Modifier.width(4.dp))
+                Text("全部中位", fontSize = 14.sp)
+            }
+            
+            OutlinedButton(
+                onClick = { viewModel.armRobot() },
+                modifier = Modifier.weight(1f).height(44.dp),
+                shape = RoundedCornerShape(8.dp)
+            ) {
+                Text("ARM 启动", fontSize = 14.sp)
             }
         }
         
-        OutlinedButton(
-            onClick = { viewModel.armRobot() },
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("ARM 启动")
-        }
-        
-        Divider(modifier = Modifier.padding(vertical = 8.dp))
-        
-        val servoNames = listOf("底座旋转", "大臂", "小臂", "手腕俯仰", "手腕旋转", "夹爪")
+        val servoNames = listOf("J1 底座", "J2 大臂", "J3 小臂", "J4 腕俯仰", "J5 腕旋转", "J6 夹爪")
         LazyColumn(verticalArrangement = Arrangement.spacedBy(8.dp)) {
             items(6) { index ->
                 ServoSlider(

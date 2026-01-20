@@ -3,6 +3,7 @@ package com.aizhigu.armcontroller.ui
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -18,7 +19,11 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.window.Dialog
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.ui.platform.LocalContext
 import com.aizhigu.armcontroller.data.ActionFrame
 
 
@@ -32,6 +37,7 @@ val CyberDim = Color(0xFF1A1A2E)
 @Composable
 fun SequencerScreen(
     viewModel: ActionSequencerViewModel,
+    currentServoValues: List<Int>,
     modifier: Modifier = Modifier
 ) {
     val frames by viewModel.frames.collectAsState()
@@ -41,6 +47,22 @@ fun SequencerScreen(
     var showEditDialog by remember { mutableStateOf(false) }
     var editingFrameIndex by remember { mutableStateOf(-1) }
     var editingFrame by remember { mutableStateOf<ActionFrame?>(null) }
+    
+    val context = LocalContext.current
+    val launcher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.OpenDocument()
+    ) { uri ->
+        uri?.let {
+            try {
+                context.contentResolver.openInputStream(it)?.use { stream ->
+                    val content = stream.bufferedReader().use { reader -> reader.readText() }
+                    viewModel.importTox(content)
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
 
     // Cyberpunk Background
     Box(
@@ -67,8 +89,13 @@ fun SequencerScreen(
                 )
 
                 // Project Controls
-                IconButton(onClick = { /* TODO: Save */ viewModel.saveProject() }) {
-                    Icon(Icons.Default.Save, contentDescription = "Save", tint = CyberText)
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    IconButton(onClick = { launcher.launch(arrayOf("*/*")) }) {
+                        Icon(Icons.Default.FileOpen, contentDescription = "Import", tint = CyberText)
+                    }
+                    IconButton(onClick = { /* TODO: Save */ viewModel.saveProject() }) {
+                        Icon(Icons.Default.Save, contentDescription = "Save", tint = CyberText)
+                    }
                 }
             }
 
@@ -99,8 +126,8 @@ fun SequencerScreen(
                 item {
                     Button(
                         onClick = { 
-                            // Add default frame (Home position)
-                            viewModel.addFrame(ActionFrame()) 
+                            // Add frame with current servo values
+                            viewModel.captureFrame(currentServoValues)
                         },
                         modifier = Modifier
                             .fillMaxWidth()
@@ -125,34 +152,43 @@ fun SequencerScreen(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 // Play / Stop
-                Button(
-                    onClick = { viewModel.togglePlay() },
-                    colors = ButtonDefaults.buttonColors(containerColor = if (isPlaying) CyberMagenta else CyberBlue),
-                    shape = RoundedCornerShape(4.dp),
-                    modifier = Modifier.weight(1f).height(48.dp)
-                ) {
-                    Icon(
-                        imageVector = if (isPlaying) Icons.Default.Stop else Icons.Default.PlayArrow,
-                        contentDescription = null,
-                        tint = Color.White
-                    )
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text(if (isPlaying) "STOP" else "RUN", fontFamily = FontFamily.Monospace)
+                // Run / Step / Loop
+                // Short press: Step / Run Once
+                // Long press: Loop
+                Box(modifier = Modifier.weight(1f).height(48.dp)) {
+                    Button(
+                        onClick = { /* Handle via pointerInput */ },
+                        colors = ButtonDefaults.buttonColors(containerColor = if (isPlaying) CyberMagenta else CyberBlue),
+                        shape = RoundedCornerShape(4.dp),
+                        modifier = Modifier.fillMaxSize().pointerInput(Unit) {
+                            detectTapGestures(
+                                onTap = { 
+                                    if (isPlaying) viewModel.stop() else viewModel.playSingleStep()
+                                },
+                                onLongPress = { 
+                                    if (!isPlaying) viewModel.startLoop()
+                                }
+                            )
+                        }
+                    ) {
+                        Icon(
+                            imageVector = if (isPlaying) Icons.Default.Stop else Icons.Default.PlayArrow,
+                            contentDescription = null,
+                            tint = Color.White
+                        )
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text(
+                            text = if (isPlaying) "STOP" else "RUN / STEP",
+                            fontFamily = FontFamily.Monospace
+                        )
+                    }
                 }
-
+                
                 Spacer(modifier = Modifier.width(16.dp))
-
-                // Loop Toggle
-                Button(
-                    onClick = { viewModel.togglePlay(loop = true) },
-                    colors = ButtonDefaults.buttonColors(containerColor = CyberBlue),
-                    shape = RoundedCornerShape(4.dp),
-                    modifier = Modifier.weight(1f).height(48.dp)
-                ) {
-                    Icon(Icons.Default.Loop, contentDescription = null, tint = Color.White)
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text("LOOP", fontFamily = FontFamily.Monospace)
-                }
+                
+                // Show Loop Indicator if looping? (Optional, maybe just Text changes)
+                // Or maybe a small indicator light.
+                // For now, let's keep it simple as requested.
             }
         }
 
@@ -215,15 +251,15 @@ fun ActionFrameCard(
             // Info
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = "DURATION: ${frame.duration}ms",
+                    text = "运动时间: ${frame.duration}ms",
                     color = CyberMagenta,
                     fontSize = 12.sp,
                     fontFamily = FontFamily.Monospace
                 )
                 Spacer(modifier = Modifier.height(4.dp))
-                // Mini visualization of values (just showing first 3 for simplicity)
+                // Mini visualization of values
                 Text(
-                    text = "AXIS: [${ActionSequencerViewModel.pwmToDegree(frame.servos[0])}°] [${ActionSequencerViewModel.pwmToDegree(frame.servos[1])}°] ...",
+                    text = "J1:${ActionSequencerViewModel.pwmToDegree(frame.servos[0])}° J2:${ActionSequencerViewModel.pwmToDegree(frame.servos[1])}° ...",
                     color = Color.Gray,
                     fontSize = 10.sp,
                     fontFamily = FontFamily.Monospace
@@ -295,7 +331,7 @@ fun EditFrameDialog(
                                 horizontalArrangement = Arrangement.SpaceBetween
                             ) {
                                 Text(
-                                    text = "AXIS-${index + 1}",
+                                    text = "J${index + 1}",
                                     color = CyberBlue,
                                     fontSize = 12.sp,
                                     fontFamily = FontFamily.Monospace
