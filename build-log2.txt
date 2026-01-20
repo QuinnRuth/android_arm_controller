@@ -1,0 +1,255 @@
+build	Set up job	锘?026-01-20T01:41:41.2896765Z Current runner version: '2.331.0'
+build	Set up job	2026-01-20T01:41:41.2920821Z ##[group]Runner Image Provisioner
+build	Set up job	2026-01-20T01:41:41.2921745Z Hosted Compute Agent
+build	Set up job	2026-01-20T01:41:41.2922260Z Version: 20251211.462
+build	Set up job	2026-01-20T01:41:41.2923342Z Commit: 6cbad8c2bb55d58165063d031ccabf57e2d2db61
+build	Set up job	2026-01-20T01:41:41.2924024Z Build Date: 2025-12-11T16:28:49Z
+build	Set up job	2026-01-20T01:41:41.2924658Z Worker ID: {ca905c66-36ba-48f8-9213-8f16b36c6766}
+build	Set up job	2026-01-20T01:41:41.2925337Z ##[endgroup]
+build	Set up job	2026-01-20T01:41:41.2925926Z ##[group]Operating System
+build	Set up job	2026-01-20T01:41:41.2926445Z Ubuntu
+build	Set up job	2026-01-20T01:41:41.2926953Z 24.04.3
+build	Set up job	2026-01-20T01:41:41.2927421Z LTS
+build	Set up job	2026-01-20T01:41:41.2927830Z ##[endgroup]
+build	Set up job	2026-01-20T01:41:41.2928337Z ##[group]Runner Image
+build	Set up job	2026-01-20T01:41:41.2929057Z Image: ubuntu-24.04
+build	Set up job	2026-01-20T01:41:41.2929575Z Version: 20260111.209.1
+build	Set up job	2026-01-20T01:41:41.2930503Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260111.209/images/ubuntu/Ubuntu2404-Readme.md
+build	Set up job	2026-01-20T01:41:41.2931912Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260111.209
+build	Set up job	2026-01-20T01:41:41.2933388Z ##[endgroup]
+build	Set up job	2026-01-20T01:41:41.2934455Z ##[group]GITHUB_TOKEN Permissions
+build	Set up job	2026-01-20T01:41:41.2936436Z Contents: read
+build	Set up job	2026-01-20T01:41:41.2937061Z Metadata: read
+build	Set up job	2026-01-20T01:41:41.2937557Z Packages: read
+build	Set up job	2026-01-20T01:41:41.2938000Z ##[endgroup]
+build	Set up job	2026-01-20T01:41:41.2940007Z Secret source: Actions
+build	Set up job	2026-01-20T01:41:41.2940703Z Prepare workflow directory
+build	Set up job	2026-01-20T01:41:41.3256689Z Prepare all required actions
+build	Set up job	2026-01-20T01:41:41.3294945Z Getting action download info
+build	Set up job	2026-01-20T01:41:41.8137092Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+build	Set up job	2026-01-20T01:41:41.9204501Z Download action repository 'actions/setup-java@v4' (SHA:c1e323688fd81a25caa38c78aa6df2d33d3e20d9)
+build	Set up job	2026-01-20T01:41:42.5495421Z Download action repository 'gradle/actions@v3' (SHA:d9c87d481d55275bb5441eef3fe0e46805f9ef70)
+build	Set up job	2026-01-20T01:41:43.5126626Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+build	Set up job	2026-01-20T01:41:43.7780707Z Complete job name: build
+build	Run actions/checkout@v4	锘?026-01-20T01:41:43.8574003Z ##[group]Run actions/checkout@v4
+build	Run actions/checkout@v4	2026-01-20T01:41:43.8575360Z with:
+build	Run actions/checkout@v4	2026-01-20T01:41:43.8576198Z   repository: QuinnRuth/android_arm_controller
+build	Run actions/checkout@v4	2026-01-20T01:41:43.8577530Z   token: ***
+build	Run actions/checkout@v4	2026-01-20T01:41:43.8578252Z   ssh-strict: true
+build	Run actions/checkout@v4	2026-01-20T01:41:43.8579015Z   ssh-user: git
+build	Run actions/checkout@v4	2026-01-20T01:41:43.8579795Z   persist-credentials: true
+build	Run actions/checkout@v4	2026-01-20T01:41:43.8580657Z   clean: true
+build	Run actions/checkout@v4	2026-01-20T01:41:43.8581437Z   sparse-checkout-cone-mode: true
+build	Run actions/checkout@v4	2026-01-20T01:41:43.8582379Z   fetch-depth: 1
+build	Run actions/checkout@v4	2026-01-20T01:41:43.8583282Z   fetch-tags: false
+build	Run actions/checkout@v4	2026-01-20T01:41:43.8584066Z   show-progress: true
+build	Run actions/checkout@v4	2026-01-20T01:41:43.8584859Z   lfs: false
+build	Run actions/checkout@v4	2026-01-20T01:41:43.8585566Z   submodules: false
+build	Run actions/checkout@v4	2026-01-20T01:41:43.8586357Z   set-safe-directory: true
+build	Run actions/checkout@v4	2026-01-20T01:41:43.8587463Z ##[endgroup]
+build	Run actions/checkout@v4	2026-01-20T01:41:43.9654786Z Syncing repository: QuinnRuth/android_arm_controller
+build	Run actions/checkout@v4	2026-01-20T01:41:43.9657430Z ##[group]Getting Git version info
+build	Run actions/checkout@v4	2026-01-20T01:41:43.9659062Z Working directory is '/home/runner/work/android_arm_controller/android_arm_controller'
+build	Run actions/checkout@v4	2026-01-20T01:41:43.9661234Z [command]/usr/bin/git version
+build	Run actions/checkout@v4	2026-01-20T01:41:43.9732526Z git version 2.52.0
+build	Run actions/checkout@v4	2026-01-20T01:41:43.9758704Z ##[endgroup]
+build	Run actions/checkout@v4	2026-01-20T01:41:43.9779160Z Temporarily overriding HOME='/home/runner/work/_temp/f7d147a8-533f-4748-a8e1-5724c236aef5' before making global git config changes
+build	Run actions/checkout@v4	2026-01-20T01:41:43.9781835Z Adding repository directory to the temporary git global config as a safe directory
+build	Run actions/checkout@v4	2026-01-20T01:41:43.9784937Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/android_arm_controller/android_arm_controller
+build	Run actions/checkout@v4	2026-01-20T01:41:43.9820844Z Deleting the contents of '/home/runner/work/android_arm_controller/android_arm_controller'
+build	Run actions/checkout@v4	2026-01-20T01:41:43.9824086Z ##[group]Initializing the repository
+build	Run actions/checkout@v4	2026-01-20T01:41:43.9828548Z [command]/usr/bin/git init /home/runner/work/android_arm_controller/android_arm_controller
+build	Run actions/checkout@v4	2026-01-20T01:41:43.9956312Z hint: Using 'master' as the name for the initial branch. This default branch name
+build	Run actions/checkout@v4	2026-01-20T01:41:43.9959318Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+build	Run actions/checkout@v4	2026-01-20T01:41:43.9962212Z hint: to use in all of your new repositories, which will suppress this warning,
+build	Run actions/checkout@v4	2026-01-20T01:41:43.9963874Z hint: call:
+build	Run actions/checkout@v4	2026-01-20T01:41:43.9964555Z hint:
+build	Run actions/checkout@v4	2026-01-20T01:41:43.9965445Z hint: 	git config --global init.defaultBranch <name>
+build	Run actions/checkout@v4	2026-01-20T01:41:43.9966905Z hint:
+build	Run actions/checkout@v4	2026-01-20T01:41:43.9968038Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+build	Run actions/checkout@v4	2026-01-20T01:41:43.9969774Z hint: 'development'. The just-created branch can be renamed via this command:
+build	Run actions/checkout@v4	2026-01-20T01:41:43.9971242Z hint:
+build	Run actions/checkout@v4	2026-01-20T01:41:43.9972242Z hint: 	git branch -m <name>
+build	Run actions/checkout@v4	2026-01-20T01:41:43.9973267Z hint:
+build	Run actions/checkout@v4	2026-01-20T01:41:43.9974413Z hint: Disable this message with "git config set advice.defaultBranchName false"
+build	Run actions/checkout@v4	2026-01-20T01:41:43.9976642Z Initialized empty Git repository in /home/runner/work/android_arm_controller/android_arm_controller/.git/
+build	Run actions/checkout@v4	2026-01-20T01:41:43.9980067Z [command]/usr/bin/git remote add origin https://github.com/QuinnRuth/android_arm_controller
+build	Run actions/checkout@v4	2026-01-20T01:41:44.0007192Z ##[endgroup]
+build	Run actions/checkout@v4	2026-01-20T01:41:44.0008547Z ##[group]Disabling automatic garbage collection
+build	Run actions/checkout@v4	2026-01-20T01:41:44.0010550Z [command]/usr/bin/git config --local gc.auto 0
+build	Run actions/checkout@v4	2026-01-20T01:41:44.0038975Z ##[endgroup]
+build	Run actions/checkout@v4	2026-01-20T01:41:44.0040218Z ##[group]Setting up auth
+build	Run actions/checkout@v4	2026-01-20T01:41:44.0045628Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build	Run actions/checkout@v4	2026-01-20T01:41:44.0074863Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build	Run actions/checkout@v4	2026-01-20T01:41:44.0476757Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build	Run actions/checkout@v4	2026-01-20T01:41:44.0510893Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build	Run actions/checkout@v4	2026-01-20T01:41:44.0726452Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+build	Run actions/checkout@v4	2026-01-20T01:41:44.0758690Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+build	Run actions/checkout@v4	2026-01-20T01:41:44.0977779Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+build	Run actions/checkout@v4	2026-01-20T01:41:44.1010673Z ##[endgroup]
+build	Run actions/checkout@v4	2026-01-20T01:41:44.1011992Z ##[group]Fetching the repository
+build	Run actions/checkout@v4	2026-01-20T01:41:44.1019801Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +88a3d73dd61491c671c11a5543e56edeacd3e8b2:refs/remotes/origin/main
+build	Run actions/checkout@v4	2026-01-20T01:41:44.4491020Z From https://github.com/QuinnRuth/android_arm_controller
+build	Run actions/checkout@v4	2026-01-20T01:41:44.4492925Z  * [new ref]         88a3d73dd61491c671c11a5543e56edeacd3e8b2 -> origin/main
+build	Run actions/checkout@v4	2026-01-20T01:41:44.4524542Z ##[endgroup]
+build	Run actions/checkout@v4	2026-01-20T01:41:44.4526907Z ##[group]Determining the checkout info
+build	Run actions/checkout@v4	2026-01-20T01:41:44.4529681Z ##[endgroup]
+build	Run actions/checkout@v4	2026-01-20T01:41:44.4531888Z [command]/usr/bin/git sparse-checkout disable
+build	Run actions/checkout@v4	2026-01-20T01:41:44.4572909Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+build	Run actions/checkout@v4	2026-01-20T01:41:44.4600213Z ##[group]Checking out the ref
+build	Run actions/checkout@v4	2026-01-20T01:41:44.4603728Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+build	Run actions/checkout@v4	2026-01-20T01:41:44.4669245Z Switched to a new branch 'main'
+build	Run actions/checkout@v4	2026-01-20T01:41:44.4672139Z branch 'main' set up to track 'origin/main'.
+build	Run actions/checkout@v4	2026-01-20T01:41:44.4679858Z ##[endgroup]
+build	Run actions/checkout@v4	2026-01-20T01:41:44.4712368Z [command]/usr/bin/git log -1 --format=%H
+build	Run actions/checkout@v4	2026-01-20T01:41:44.4734209Z 88a3d73dd61491c671c11a5543e56edeacd3e8b2
+build	Set up JDK 17	锘?026-01-20T01:41:44.5130872Z ##[group]Run actions/setup-java@v4
+build	Set up JDK 17	2026-01-20T01:41:44.5131836Z with:
+build	Set up JDK 17	2026-01-20T01:41:44.5132496Z   java-version: 17
+build	Set up JDK 17	2026-01-20T01:41:44.5133711Z   distribution: temurin
+build	Set up JDK 17	2026-01-20T01:41:44.5134488Z   java-package: jdk
+build	Set up JDK 17	2026-01-20T01:41:44.5135226Z   check-latest: false
+build	Set up JDK 17	2026-01-20T01:41:44.5135972Z   server-id: github
+build	Set up JDK 17	2026-01-20T01:41:44.5136740Z   server-username: GITHUB_ACTOR
+build	Set up JDK 17	2026-01-20T01:41:44.5137640Z   server-password: GITHUB_TOKEN
+build	Set up JDK 17	2026-01-20T01:41:44.5138537Z   overwrite-settings: true
+build	Set up JDK 17	2026-01-20T01:41:44.5139358Z   job-status: success
+build	Set up JDK 17	2026-01-20T01:41:44.5140381Z   token: ***
+build	Set up JDK 17	2026-01-20T01:41:44.5141061Z ##[endgroup]
+build	Set up JDK 17	2026-01-20T01:41:44.7092361Z ##[group]Installed distributions
+build	Set up JDK 17	2026-01-20T01:41:44.7395068Z Resolved Java 17.0.17+10 from tool-cache
+build	Set up JDK 17	2026-01-20T01:41:44.7396382Z Setting Java 17.0.17+10 as the default
+build	Set up JDK 17	2026-01-20T01:41:44.7408542Z Creating toolchains.xml for JDK version 17 from temurin
+build	Set up JDK 17	2026-01-20T01:41:44.7485516Z Writing to /home/runner/.m2/toolchains.xml
+build	Set up JDK 17	2026-01-20T01:41:44.7486389Z 
+build	Set up JDK 17	2026-01-20T01:41:44.7486785Z Java configuration:
+build	Set up JDK 17	2026-01-20T01:41:44.7487913Z   Distribution: temurin
+build	Set up JDK 17	2026-01-20T01:41:44.7489100Z   Version: 17.0.17+10
+build	Set up JDK 17	2026-01-20T01:41:44.7490432Z   Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/x64
+build	Set up JDK 17	2026-01-20T01:41:44.7491544Z 
+build	Set up JDK 17	2026-01-20T01:41:44.7492442Z ##[endgroup]
+build	Set up JDK 17	2026-01-20T01:41:44.7507899Z Creating settings.xml with server-id: github
+build	Set up JDK 17	2026-01-20T01:41:44.7517438Z Writing to /home/runner/.m2/settings.xml
+build	Setup Gradle	锘?026-01-20T01:41:44.7888140Z ##[group]Run gradle/actions/setup-gradle@v3
+build	Setup Gradle	2026-01-20T01:41:44.7889205Z with:
+build	Setup Gradle	2026-01-20T01:41:44.7889881Z   cache-disabled: false
+build	Setup Gradle	2026-01-20T01:41:44.7890700Z   cache-read-only: true
+build	Setup Gradle	2026-01-20T01:41:44.7891507Z   cache-write-only: false
+build	Setup Gradle	2026-01-20T01:41:44.7892391Z   cache-overwrite-existing: false
+build	Setup Gradle	2026-01-20T01:41:44.7893639Z   gradle-home-cache-includes: caches
+build	Setup Gradle	notifications
+build	Setup Gradle	
+build	Setup Gradle	2026-01-20T01:41:44.7894831Z   gradle-home-cache-cleanup: false
+build	Setup Gradle	2026-01-20T01:41:44.7895776Z   add-job-summary: always
+build	Setup Gradle	2026-01-20T01:41:44.7896686Z   add-job-summary-as-pr-comment: never
+build	Setup Gradle	2026-01-20T01:41:44.7897693Z   dependency-graph: disabled
+build	Setup Gradle	2026-01-20T01:41:44.7898685Z   dependency-graph-continue-on-failure: true
+build	Setup Gradle	2026-01-20T01:41:44.7899772Z   build-scan-publish: false
+build	Setup Gradle	2026-01-20T01:41:44.7900644Z   validate-wrappers: false
+build	Setup Gradle	2026-01-20T01:41:44.7901521Z   generate-job-summary: true
+build	Setup Gradle	2026-01-20T01:41:44.7902454Z   gradle-home-cache-strict-match: false
+build	Setup Gradle	2026-01-20T01:41:44.7903573Z   workflow-job-context: null
+build	Setup Gradle	2026-01-20T01:41:44.7904816Z   github-token: ***
+build	Setup Gradle	2026-01-20T01:41:44.7905549Z env:
+build	Setup Gradle	2026-01-20T01:41:44.7906583Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/x64
+build	Setup Gradle	2026-01-20T01:41:44.7908357Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/x64
+build	Setup Gradle	2026-01-20T01:41:44.7909742Z ##[endgroup]
+build	Setup Gradle	2026-01-20T01:41:45.9927029Z Merged default JDK locations into /home/runner/.m2/toolchains.xml
+build	Setup Gradle	2026-01-20T01:41:45.9929360Z ##[group]Restore Gradle state from cache
+build	Setup Gradle	2026-01-20T01:41:46.0714077Z ##[warning]Failed to restore gradle-home-v1|Linux|build[5df42585ae8f8da228c604b8b4e8707c]-88a3d73dd61491c671c11a5543e56edeacd3e8b2: Error: Cache service responded with 400
+build	Setup Gradle	2026-01-20T01:41:46.0766662Z Gradle User Home cache not found. Will initialize empty.
+build	Setup Gradle	2026-01-20T01:41:46.0767734Z ##[endgroup]
+build	Build Debug APK	锘?026-01-20T01:41:46.0892143Z ##[group]Run gradle assembleDebug --no-daemon
+build	Build Debug APK	2026-01-20T01:41:46.0892546Z [36;1mgradle assembleDebug --no-daemon[0m
+build	Build Debug APK	2026-01-20T01:41:46.0926255Z shell: /usr/bin/bash -e {0}
+build	Build Debug APK	2026-01-20T01:41:46.0926526Z env:
+build	Build Debug APK	2026-01-20T01:41:46.0926812Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/x64
+build	Build Debug APK	2026-01-20T01:41:46.0927292Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/x64
+build	Build Debug APK	2026-01-20T01:41:46.0927679Z   GRADLE_ACTION_ID: gradle/actions/setup-gradle
+build	Build Debug APK	2026-01-20T01:41:46.0927968Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+build	Build Debug APK	2026-01-20T01:41:46.0928234Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+build	Build Debug APK	2026-01-20T01:41:46.0928636Z   DEVELOCITY_INJECTION_INIT_SCRIPT_NAME: gradle-actions.inject-develocity.init.gradle
+build	Build Debug APK	2026-01-20T01:41:46.0929121Z   DEVELOCITY_AUTO_INJECTION_CUSTOM_VALUE: gradle-actions
+build	Build Debug APK	2026-01-20T01:41:46.0929633Z   GITHUB_DEPENDENCY_GRAPH_ENABLED: false
+build	Build Debug APK	2026-01-20T01:41:46.0929883Z ##[endgroup]
+build	Build Debug APK	2026-01-20T01:41:48.8619968Z 
+build	Build Debug APK	2026-01-20T01:41:48.8629977Z Welcome to Gradle 9.2.1!
+build	Build Debug APK	2026-01-20T01:41:48.8630747Z 
+build	Build Debug APK	2026-01-20T01:41:48.8630941Z Here are the highlights of this release:
+build	Build Debug APK	2026-01-20T01:41:48.8631443Z  - Windows ARM support
+build	Build Debug APK	2026-01-20T01:41:48.8631830Z  - Improved publishing APIs
+build	Build Debug APK	2026-01-20T01:41:48.8632342Z  - Better guidance for dependency verification failures
+build	Build Debug APK	2026-01-20T01:41:48.8633082Z 
+build	Build Debug APK	2026-01-20T01:41:48.8633418Z For more details see https://docs.gradle.org/9.2.1/release-notes.html
+build	Build Debug APK	2026-01-20T01:41:48.8634158Z 
+build	Build Debug APK	2026-01-20T01:41:49.3566521Z To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+build	Build Debug APK	2026-01-20T01:41:52.2559576Z Daemon will be stopped at the end of the build 
+build	Build Debug APK	2026-01-20T01:43:01.0588872Z > Task :app:preBuild UP-TO-DATE
+build	Build Debug APK	2026-01-20T01:43:01.0598633Z > Task :app:preDebugBuild UP-TO-DATE
+build	Build Debug APK	2026-01-20T01:43:01.0600789Z > Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+build	Build Debug APK	2026-01-20T01:43:01.0603857Z > Task :app:checkKotlinGradlePluginConfigurationErrors
+build	Build Debug APK	2026-01-20T01:43:10.7571332Z > Task :app:generateDebugResValues
+build	Build Debug APK	2026-01-20T01:43:10.7604735Z > Task :app:checkDebugAarMetadata
+build	Build Debug APK	2026-01-20T01:43:10.8583922Z > Task :app:mapDebugSourceSetPaths
+build	Build Debug APK	2026-01-20T01:43:10.8640843Z > Task :app:generateDebugResources
+build	Build Debug APK	2026-01-20T01:43:11.7559304Z > Task :app:packageDebugResources
+build	Build Debug APK	2026-01-20T01:43:12.3564390Z > Task :app:mergeDebugResources
+build	Build Debug APK	2026-01-20T01:43:12.8566286Z > Task :app:createDebugCompatibleScreenManifests
+build	Build Debug APK	2026-01-20T01:43:12.8566951Z > Task :app:extractDeepLinksDebug
+build	Build Debug APK	2026-01-20T01:43:12.9560251Z > Task :app:parseDebugLocalResources
+build	Build Debug APK	2026-01-20T01:43:13.1561000Z > Task :app:processDebugMainManifest
+build	Build Debug APK	2026-01-20T01:43:13.2569293Z > Task :app:processDebugManifest
+build	Build Debug APK	2026-01-20T01:43:13.2573116Z > Task :app:javaPreCompileDebug
+build	Build Debug APK	2026-01-20T01:43:13.2574603Z > Task :app:mergeDebugShaders
+build	Build Debug APK	2026-01-20T01:43:13.2575063Z > Task :app:compileDebugShaders NO-SOURCE
+build	Build Debug APK	2026-01-20T01:43:13.2581122Z > Task :app:generateDebugAssets UP-TO-DATE
+build	Build Debug APK	2026-01-20T01:43:13.3559097Z > Task :app:mergeDebugAssets
+build	Build Debug APK	2026-01-20T01:43:13.3563001Z > Task :app:compressDebugAssets
+build	Build Debug APK	2026-01-20T01:43:13.3569129Z > Task :app:desugarDebugFileDependencies
+build	Build Debug APK	2026-01-20T01:43:13.3571230Z > Task :app:processDebugManifestForPackage
+build	Build Debug APK	2026-01-20T01:43:14.0565293Z > Task :app:processDebugResources FAILED
+build	Build Debug APK	2026-01-20T01:43:14.1559890Z 
+build	Build Debug APK	2026-01-20T01:43:14.1564775Z [Incubating] Problems report is available at: file:///home/runner/work/android_arm_controller/android_arm_controller/build/reports/problems/problems-report.html
+build	Build Debug APK	2026-01-20T01:43:14.1593053Z 
+build	Build Debug APK	2026-01-20T01:43:14.1597919Z FAILURE: Build failed with an exception.
+build	Build Debug APK	2026-01-20T01:43:14.1598306Z 
+build	Build Debug APK	2026-01-20T01:43:14.1598453Z * What went wrong:
+build	Build Debug APK	2026-01-20T01:43:14.1598930Z Execution failed for task ':app:processDebugResources'.
+build	Build Debug APK	2026-01-20T01:43:14.1600452Z > Cannot mutate the dependencies of configuration ':app:debugCompileClasspath' after the configuration was resolved. After a configuration has been observed, it should not be modified.
+build	Build Debug APK	2026-01-20T01:43:14.1602264Z 
+build	Build Debug APK	2026-01-20T01:43:14.1602482Z * Try:
+build	Build Debug APK	2026-01-20T01:43:14.1603086Z > Run with --stacktrace option to get the stack trace.
+build	Build Debug APK	2026-01-20T01:43:14.1603481Z 
+build	Build Debug APK	2026-01-20T01:43:14.1603894Z > Run with --info or --debug option to get more log output.
+build	Build Debug APK	2026-01-20T01:43:14.1604552Z > Run with --scan to generate a Build Scan (powered by Develocity).
+build	Build Debug APK	2026-01-20T01:43:14.1605298Z > Get more help at https://help.gradle.org.
+build	Build Debug APK	2026-01-20T01:43:14.1605729Z 
+build	Build Debug APK	2026-01-20T01:43:14.1606046Z BUILD FAILED in 1m 27s
+build	Build Debug APK	2026-01-20T01:43:14.1606685Z Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+build	Build Debug APK	2026-01-20T01:43:14.1607234Z 
+build	Build Debug APK	2026-01-20T01:43:14.1607936Z You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+build	Build Debug APK	2026-01-20T01:43:14.1609052Z 
+build	Build Debug APK	2026-01-20T01:43:14.1609895Z For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+build	Build Debug APK	2026-01-20T01:43:14.1611030Z 18 actionable tasks: 18 executed
+build	Build Debug APK	2026-01-20T01:43:14.4189638Z ##[error]Process completed with exit code 1.
+build	Post Setup Gradle	锘?026-01-20T01:43:14.4343753Z Post job cleanup.
+build	Post Setup Gradle	2026-01-20T01:43:14.6681190Z In post-action step
+build	Post Setup Gradle	2026-01-20T01:43:14.6689608Z Cache is read-only: will not save state for use in subsequent builds.
+build	Post Setup Gradle	2026-01-20T01:43:14.6695794Z Generating Job Summary
+build	Post Setup Gradle	2026-01-20T01:43:14.6717962Z Completed post-action step
+build	Post Set up JDK 17	锘?026-01-20T01:43:14.6899785Z Post job cleanup.
+build	Post Run actions/checkout@v4	锘?026-01-20T01:43:14.8657056Z Post job cleanup.
+build	Post Run actions/checkout@v4	2026-01-20T01:43:14.9582058Z [command]/usr/bin/git version
+build	Post Run actions/checkout@v4	2026-01-20T01:43:14.9621328Z git version 2.52.0
+build	Post Run actions/checkout@v4	2026-01-20T01:43:14.9685518Z Temporarily overriding HOME='/home/runner/work/_temp/05b64c05-c491-468c-bf82-96614468660f' before making global git config changes
+build	Post Run actions/checkout@v4	2026-01-20T01:43:14.9686772Z Adding repository directory to the temporary git global config as a safe directory
+build	Post Run actions/checkout@v4	2026-01-20T01:43:14.9703692Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/android_arm_controller/android_arm_controller
+build	Post Run actions/checkout@v4	2026-01-20T01:43:14.9744943Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build	Post Run actions/checkout@v4	2026-01-20T01:43:14.9784866Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build	Post Run actions/checkout@v4	2026-01-20T01:43:15.0035070Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build	Post Run actions/checkout@v4	2026-01-20T01:43:15.0058140Z http.https://github.com/.extraheader
+build	Post Run actions/checkout@v4	2026-01-20T01:43:15.0071401Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+build	Post Run actions/checkout@v4	2026-01-20T01:43:15.0104207Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build	Post Run actions/checkout@v4	2026-01-20T01:43:15.0353759Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+build	Post Run actions/checkout@v4	2026-01-20T01:43:15.0390599Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+build	Complete job	锘?026-01-20T01:43:15.0743270Z Cleaning up orphan processes
