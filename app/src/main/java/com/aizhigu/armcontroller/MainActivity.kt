@@ -20,6 +20,10 @@ import androidx.core.app.ActivityCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.lifecycle.ViewModelProvider
+import com.aizhigu.armcontroller.data.AppDatabase
+import com.aizhigu.armcontroller.ui.ActionSequencerViewModel
+import com.aizhigu.armcontroller.ui.ActionSequencerViewModelFactory
 import com.aizhigu.armcontroller.ui.ArmControllerApp
 import com.aizhigu.armcontroller.ui.theme.ArmControllerTheme
 import kotlinx.coroutines.*
@@ -52,9 +56,19 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    val viewModel: ArmViewModel = viewModel()
+                    val armViewModel: ArmViewModel = viewModel()
+                    
+                    val database = AppDatabase.getDatabase(applicationContext)
+                    val sequencerViewModel: ActionSequencerViewModel = viewModel(
+                        factory = ActionSequencerViewModelFactory(
+                            actionDao = database.actionDao(),
+                            onSendCommand = { cmd -> armViewModel.sendRaw(cmd) }
+                        )
+                    )
+
                     ArmControllerApp(
-                        viewModel = viewModel,
+                        viewModel = armViewModel,
+                        sequencerViewModel = sequencerViewModel,
                         bluetoothAdapter = bluetoothAdapter,
                         onRequestPermissions = { requestBluetoothPermissions() }
                     )
@@ -133,7 +147,7 @@ class ArmViewModel : ViewModel() {
         sendRaw(cmd)
     }
     
-    private fun sendRaw(data: String) {
+    public fun sendRaw(data: String) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 outputStream?.write(data.toByteArray())

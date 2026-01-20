@@ -28,10 +28,12 @@ import com.aizhigu.armcontroller.ArmViewModel
 @Composable
 fun ArmControllerApp(
     viewModel: ArmViewModel,
+    sequencerViewModel: ActionSequencerViewModel,
     bluetoothAdapter: BluetoothAdapter?,
     onRequestPermissions: () -> Unit
 ) {
     var showDeviceDialog by remember { mutableStateOf(false) }
+    var selectedTab by remember { mutableIntStateOf(0) } // 0=Manual, 1=Sequencer
     
     Scaffold(
         topBar = {
@@ -52,7 +54,6 @@ fun ArmControllerApp(
                     containerColor = MaterialTheme.colorScheme.primaryContainer
                 ),
                 actions = {
-                    // 蓝牙连接按钮
                     IconButton(onClick = { 
                         if (viewModel.isConnected) {
                             viewModel.disconnect()
@@ -68,78 +69,33 @@ fun ArmControllerApp(
                     }
                 }
             )
+        },
+        bottomBar = {
+            NavigationBar {
+                NavigationBarItem(
+                    selected = selectedTab == 0,
+                    onClick = { selectedTab = 0 },
+                    icon = { Icon(Icons.Default.TouchApp, contentDescription = null) },
+                    label = { Text("手动控制") }
+                )
+                NavigationBarItem(
+                    selected = selectedTab == 1,
+                    onClick = { selectedTab = 1 },
+                    icon = { Icon(Icons.Default.List, contentDescription = null) },
+                    label = { Text("动作编程") }
+                )
+            }
         }
     ) { paddingValues ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
-                .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
-        ) {
-            // 急停按钮区域
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                // 急停按钮
-                Button(
-                    onClick = { viewModel.emergencyStop() },
-                    modifier = Modifier
-                        .weight(1f)
-                        .height(60.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFD32F2F)),
-                    shape = RoundedCornerShape(12.dp)
-                ) {
-                    Icon(Icons.Filled.Warning, contentDescription = null)
-                    Spacer(Modifier.width(8.dp))
-                    Text("急停 STOP", fontSize = 18.sp, fontWeight = FontWeight.Bold)
-                }
-                
-                // 复位按钮
-                Button(
-                    onClick = { viewModel.centerAll() },
-                    modifier = Modifier
-                        .weight(1f)
-                        .height(60.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF1976D2)),
-                    shape = RoundedCornerShape(12.dp)
-                ) {
-                    Icon(Icons.Filled.Refresh, contentDescription = null)
-                    Spacer(Modifier.width(8.dp))
-                    Text("复位", fontSize = 18.sp, fontWeight = FontWeight.Bold)
-                }
-            }
-            
-            // ARM 按钮
-            OutlinedButton(
-                onClick = { viewModel.armRobot() },
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text("ARM 启动")
-            }
-            
-            Divider(modifier = Modifier.padding(vertical = 8.dp))
-            
-            // 6轴控制滑块
-            val servoNames = listOf("底座旋转", "大臂", "小臂", "手腕俯仰", "手腕旋转", "夹爪")
-            
-            LazyColumn(
-                verticalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                items(6) { index ->
-                    ServoSlider(
-                        name = servoNames[index],
-                        servoIndex = index + 1,
-                        value = viewModel.servoValues[index],
-                        onValueChange = { viewModel.updateServo(index, it) }
-                    )
-                }
+        Box(modifier = Modifier.padding(paddingValues).fillMaxSize()) {
+            if (selectedTab == 0) {
+                ManualControlScreen(viewModel)
+            } else {
+                SequencerScreen(sequencerViewModel)
             }
         }
     }
     
-    // 设备选择对话框
     if (showDeviceDialog) {
         BluetoothDeviceDialog(
             bluetoothAdapter = bluetoothAdapter,
@@ -149,6 +105,65 @@ fun ArmControllerApp(
             },
             onDismiss = { showDeviceDialog = false }
         )
+    }
+}
+
+@Composable
+fun ManualControlScreen(viewModel: ArmViewModel) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp)
+    ) {
+        // 急停按钮区域
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            Button(
+                onClick = { viewModel.emergencyStop() },
+                modifier = Modifier.weight(1f).height(60.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFD32F2F)),
+                shape = RoundedCornerShape(12.dp)
+            ) {
+                Icon(Icons.Filled.Warning, contentDescription = null)
+                Spacer(Modifier.width(8.dp))
+                Text("急停 STOP", fontSize = 18.sp, fontWeight = FontWeight.Bold)
+            }
+            
+            Button(
+                onClick = { viewModel.centerAll() },
+                modifier = Modifier.weight(1f).height(60.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF1976D2)),
+                shape = RoundedCornerShape(12.dp)
+            ) {
+                Icon(Icons.Filled.Refresh, contentDescription = null)
+                Spacer(Modifier.width(8.dp))
+                Text("复位", fontSize = 18.sp, fontWeight = FontWeight.Bold)
+            }
+        }
+        
+        OutlinedButton(
+            onClick = { viewModel.armRobot() },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("ARM 启动")
+        }
+        
+        Divider(modifier = Modifier.padding(vertical = 8.dp))
+        
+        val servoNames = listOf("底座旋转", "大臂", "小臂", "手腕俯仰", "手腕旋转", "夹爪")
+        LazyColumn(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            items(6) { index ->
+                ServoSlider(
+                    name = servoNames[index],
+                    servoIndex = index + 1,
+                    value = viewModel.servoValues[index],
+                    onValueChange = { viewModel.updateServo(index, it) }
+                )
+            }
+        }
     }
 }
 
