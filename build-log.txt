@@ -1,0 +1,310 @@
+build	Set up job	锘?026-01-20T01:37:13.0797451Z Current runner version: '2.331.0'
+build	Set up job	2026-01-20T01:37:13.0824148Z ##[group]Runner Image Provisioner
+build	Set up job	2026-01-20T01:37:13.0825034Z Hosted Compute Agent
+build	Set up job	2026-01-20T01:37:13.0825634Z Version: 20251211.462
+build	Set up job	2026-01-20T01:37:13.0826224Z Commit: 6cbad8c2bb55d58165063d031ccabf57e2d2db61
+build	Set up job	2026-01-20T01:37:13.0826970Z Build Date: 2025-12-11T16:28:49Z
+build	Set up job	2026-01-20T01:37:13.0827939Z Worker ID: {6859c9e6-acbf-467c-9e16-8c747028e3d5}
+build	Set up job	2026-01-20T01:37:13.0828713Z ##[endgroup]
+build	Set up job	2026-01-20T01:37:13.0829194Z ##[group]Operating System
+build	Set up job	2026-01-20T01:37:13.0829861Z Ubuntu
+build	Set up job	2026-01-20T01:37:13.0830340Z 24.04.3
+build	Set up job	2026-01-20T01:37:13.0830760Z LTS
+build	Set up job	2026-01-20T01:37:13.0831317Z ##[endgroup]
+build	Set up job	2026-01-20T01:37:13.0831803Z ##[group]Runner Image
+build	Set up job	2026-01-20T01:37:13.0832327Z Image: ubuntu-24.04
+build	Set up job	2026-01-20T01:37:13.0832861Z Version: 20260111.209.1
+build	Set up job	2026-01-20T01:37:13.0833863Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260111.209/images/ubuntu/Ubuntu2404-Readme.md
+build	Set up job	2026-01-20T01:37:13.0835212Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260111.209
+build	Set up job	2026-01-20T01:37:13.0836571Z ##[endgroup]
+build	Set up job	2026-01-20T01:37:13.0838014Z ##[group]GITHUB_TOKEN Permissions
+build	Set up job	2026-01-20T01:37:13.0840005Z Contents: read
+build	Set up job	2026-01-20T01:37:13.0840589Z Metadata: read
+build	Set up job	2026-01-20T01:37:13.0841186Z Packages: read
+build	Set up job	2026-01-20T01:37:13.0841710Z ##[endgroup]
+build	Set up job	2026-01-20T01:37:13.0843889Z Secret source: Actions
+build	Set up job	2026-01-20T01:37:13.0844679Z Prepare workflow directory
+build	Set up job	2026-01-20T01:37:13.1188037Z Prepare all required actions
+build	Set up job	2026-01-20T01:37:13.1227134Z Getting action download info
+build	Set up job	2026-01-20T01:37:13.4734290Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+build	Set up job	2026-01-20T01:37:13.5911435Z Download action repository 'actions/setup-java@v4' (SHA:c1e323688fd81a25caa38c78aa6df2d33d3e20d9)
+build	Set up job	2026-01-20T01:37:14.0508155Z Download action repository 'gradle/actions@v3' (SHA:d9c87d481d55275bb5441eef3fe0e46805f9ef70)
+build	Set up job	2026-01-20T01:37:14.7946054Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+build	Set up job	2026-01-20T01:37:15.0642315Z Complete job name: build
+build	Run actions/checkout@v4	锘?026-01-20T01:37:15.1455938Z ##[group]Run actions/checkout@v4
+build	Run actions/checkout@v4	2026-01-20T01:37:15.1457203Z with:
+build	Run actions/checkout@v4	2026-01-20T01:37:15.1458447Z   repository: QuinnRuth/android_arm_controller
+build	Run actions/checkout@v4	2026-01-20T01:37:15.1459801Z   token: ***
+build	Run actions/checkout@v4	2026-01-20T01:37:15.1460454Z   ssh-strict: true
+build	Run actions/checkout@v4	2026-01-20T01:37:15.1461137Z   ssh-user: git
+build	Run actions/checkout@v4	2026-01-20T01:37:15.1461820Z   persist-credentials: true
+build	Run actions/checkout@v4	2026-01-20T01:37:15.1462581Z   clean: true
+build	Run actions/checkout@v4	2026-01-20T01:37:15.1463282Z   sparse-checkout-cone-mode: true
+build	Run actions/checkout@v4	2026-01-20T01:37:15.1464112Z   fetch-depth: 1
+build	Run actions/checkout@v4	2026-01-20T01:37:15.1464779Z   fetch-tags: false
+build	Run actions/checkout@v4	2026-01-20T01:37:15.1465471Z   show-progress: true
+build	Run actions/checkout@v4	2026-01-20T01:37:15.1466183Z   lfs: false
+build	Run actions/checkout@v4	2026-01-20T01:37:15.1466839Z   submodules: false
+build	Run actions/checkout@v4	2026-01-20T01:37:15.1467662Z   set-safe-directory: true
+build	Run actions/checkout@v4	2026-01-20T01:37:15.1468823Z ##[endgroup]
+build	Run actions/checkout@v4	2026-01-20T01:37:15.2638716Z Syncing repository: QuinnRuth/android_arm_controller
+build	Run actions/checkout@v4	2026-01-20T01:37:15.2642639Z ##[group]Getting Git version info
+build	Run actions/checkout@v4	2026-01-20T01:37:15.2645021Z Working directory is '/home/runner/work/android_arm_controller/android_arm_controller'
+build	Run actions/checkout@v4	2026-01-20T01:37:15.2647989Z [command]/usr/bin/git version
+build	Run actions/checkout@v4	2026-01-20T01:37:15.2730628Z git version 2.52.0
+build	Run actions/checkout@v4	2026-01-20T01:37:15.2759782Z ##[endgroup]
+build	Run actions/checkout@v4	2026-01-20T01:37:15.2777324Z Temporarily overriding HOME='/home/runner/work/_temp/7fc7880e-07f8-4e30-bce2-b5baa57055ac' before making global git config changes
+build	Run actions/checkout@v4	2026-01-20T01:37:15.2781422Z Adding repository directory to the temporary git global config as a safe directory
+build	Run actions/checkout@v4	2026-01-20T01:37:15.2793889Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/android_arm_controller/android_arm_controller
+build	Run actions/checkout@v4	2026-01-20T01:37:15.2839016Z Deleting the contents of '/home/runner/work/android_arm_controller/android_arm_controller'
+build	Run actions/checkout@v4	2026-01-20T01:37:15.2842585Z ##[group]Initializing the repository
+build	Run actions/checkout@v4	2026-01-20T01:37:15.2848302Z [command]/usr/bin/git init /home/runner/work/android_arm_controller/android_arm_controller
+build	Run actions/checkout@v4	2026-01-20T01:37:15.2977002Z hint: Using 'master' as the name for the initial branch. This default branch name
+build	Run actions/checkout@v4	2026-01-20T01:37:15.2980240Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+build	Run actions/checkout@v4	2026-01-20T01:37:15.2982783Z hint: to use in all of your new repositories, which will suppress this warning,
+build	Run actions/checkout@v4	2026-01-20T01:37:15.2984400Z hint: call:
+build	Run actions/checkout@v4	2026-01-20T01:37:15.2985342Z hint:
+build	Run actions/checkout@v4	2026-01-20T01:37:15.2986200Z hint: 	git config --global init.defaultBranch <name>
+build	Run actions/checkout@v4	2026-01-20T01:37:15.2987206Z hint:
+build	Run actions/checkout@v4	2026-01-20T01:37:15.2988741Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+build	Run actions/checkout@v4	2026-01-20T01:37:15.2990302Z hint: 'development'. The just-created branch can be renamed via this command:
+build	Run actions/checkout@v4	2026-01-20T01:37:15.2991522Z hint:
+build	Run actions/checkout@v4	2026-01-20T01:37:15.2992191Z hint: 	git branch -m <name>
+build	Run actions/checkout@v4	2026-01-20T01:37:15.2992935Z hint:
+build	Run actions/checkout@v4	2026-01-20T01:37:15.2993933Z hint: Disable this message with "git config set advice.defaultBranchName false"
+build	Run actions/checkout@v4	2026-01-20T01:37:15.2996373Z Initialized empty Git repository in /home/runner/work/android_arm_controller/android_arm_controller/.git/
+build	Run actions/checkout@v4	2026-01-20T01:37:15.2999946Z [command]/usr/bin/git remote add origin https://github.com/QuinnRuth/android_arm_controller
+build	Run actions/checkout@v4	2026-01-20T01:37:15.3041207Z ##[endgroup]
+build	Run actions/checkout@v4	2026-01-20T01:37:15.3043392Z ##[group]Disabling automatic garbage collection
+build	Run actions/checkout@v4	2026-01-20T01:37:15.3045492Z [command]/usr/bin/git config --local gc.auto 0
+build	Run actions/checkout@v4	2026-01-20T01:37:15.3079062Z ##[endgroup]
+build	Run actions/checkout@v4	2026-01-20T01:37:15.3080254Z ##[group]Setting up auth
+build	Run actions/checkout@v4	2026-01-20T01:37:15.3086424Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build	Run actions/checkout@v4	2026-01-20T01:37:15.3119529Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build	Run actions/checkout@v4	2026-01-20T01:37:15.3511721Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build	Run actions/checkout@v4	2026-01-20T01:37:15.3544021Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build	Run actions/checkout@v4	2026-01-20T01:37:15.3774617Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+build	Run actions/checkout@v4	2026-01-20T01:37:15.3806194Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+build	Run actions/checkout@v4	2026-01-20T01:37:15.4047336Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+build	Run actions/checkout@v4	2026-01-20T01:37:15.4085720Z ##[endgroup]
+build	Run actions/checkout@v4	2026-01-20T01:37:15.4088347Z ##[group]Fetching the repository
+build	Run actions/checkout@v4	2026-01-20T01:37:15.4097301Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +a2245a772a01a89b1c87d099f41c6760e8ad8bd0:refs/remotes/origin/main
+build	Run actions/checkout@v4	2026-01-20T01:37:15.6168562Z From https://github.com/QuinnRuth/android_arm_controller
+build	Run actions/checkout@v4	2026-01-20T01:37:15.6169546Z  * [new ref]         a2245a772a01a89b1c87d099f41c6760e8ad8bd0 -> origin/main
+build	Run actions/checkout@v4	2026-01-20T01:37:15.6205154Z ##[endgroup]
+build	Run actions/checkout@v4	2026-01-20T01:37:15.6205610Z ##[group]Determining the checkout info
+build	Run actions/checkout@v4	2026-01-20T01:37:15.6211518Z ##[endgroup]
+build	Run actions/checkout@v4	2026-01-20T01:37:15.6216318Z [command]/usr/bin/git sparse-checkout disable
+build	Run actions/checkout@v4	2026-01-20T01:37:15.6265977Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+build	Run actions/checkout@v4	2026-01-20T01:37:15.6296199Z ##[group]Checking out the ref
+build	Run actions/checkout@v4	2026-01-20T01:37:15.6301844Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+build	Run actions/checkout@v4	2026-01-20T01:37:15.6365904Z Switched to a new branch 'main'
+build	Run actions/checkout@v4	2026-01-20T01:37:15.6368918Z branch 'main' set up to track 'origin/main'.
+build	Run actions/checkout@v4	2026-01-20T01:37:15.6375267Z ##[endgroup]
+build	Run actions/checkout@v4	2026-01-20T01:37:15.6411790Z [command]/usr/bin/git log -1 --format=%H
+build	Run actions/checkout@v4	2026-01-20T01:37:15.6434784Z a2245a772a01a89b1c87d099f41c6760e8ad8bd0
+build	Set up JDK 17	锘?026-01-20T01:37:15.6697028Z ##[group]Run actions/setup-java@v4
+build	Set up JDK 17	2026-01-20T01:37:15.6697391Z with:
+build	Set up JDK 17	2026-01-20T01:37:15.6697835Z   java-version: 17
+build	Set up JDK 17	2026-01-20T01:37:15.6698297Z   distribution: temurin
+build	Set up JDK 17	2026-01-20T01:37:15.6698551Z   java-package: jdk
+build	Set up JDK 17	2026-01-20T01:37:15.6698788Z   check-latest: false
+build	Set up JDK 17	2026-01-20T01:37:15.6699022Z   server-id: github
+build	Set up JDK 17	2026-01-20T01:37:15.6763264Z   server-username: GITHUB_ACTOR
+build	Set up JDK 17	2026-01-20T01:37:15.6763748Z   server-password: GITHUB_TOKEN
+build	Set up JDK 17	2026-01-20T01:37:15.6764066Z   overwrite-settings: true
+build	Set up JDK 17	2026-01-20T01:37:15.6764365Z   job-status: success
+build	Set up JDK 17	2026-01-20T01:37:15.6764881Z   token: ***
+build	Set up JDK 17	2026-01-20T01:37:15.6765143Z ##[endgroup]
+build	Set up JDK 17	2026-01-20T01:37:15.8864751Z ##[group]Installed distributions
+build	Set up JDK 17	2026-01-20T01:37:15.8931937Z Resolved Java 17.0.17+10 from tool-cache
+build	Set up JDK 17	2026-01-20T01:37:15.8933216Z Setting Java 17.0.17+10 as the default
+build	Set up JDK 17	2026-01-20T01:37:15.8946366Z Creating toolchains.xml for JDK version 17 from temurin
+build	Set up JDK 17	2026-01-20T01:37:15.9026565Z Writing to /home/runner/.m2/toolchains.xml
+build	Set up JDK 17	2026-01-20T01:37:15.9027433Z 
+build	Set up JDK 17	2026-01-20T01:37:15.9028326Z Java configuration:
+build	Set up JDK 17	2026-01-20T01:37:15.9030736Z   Distribution: temurin
+build	Set up JDK 17	2026-01-20T01:37:15.9031296Z   Version: 17.0.17+10
+build	Set up JDK 17	2026-01-20T01:37:15.9031938Z   Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/x64
+build	Set up JDK 17	2026-01-20T01:37:15.9032534Z 
+build	Set up JDK 17	2026-01-20T01:37:15.9033358Z ##[endgroup]
+build	Set up JDK 17	2026-01-20T01:37:15.9051697Z Creating settings.xml with server-id: github
+build	Set up JDK 17	2026-01-20T01:37:15.9057746Z Writing to /home/runner/.m2/settings.xml
+build	Setup Gradle	锘?026-01-20T01:37:15.9289813Z ##[group]Run gradle/actions/setup-gradle@v3
+build	Setup Gradle	2026-01-20T01:37:15.9290205Z with:
+build	Setup Gradle	2026-01-20T01:37:15.9290420Z   cache-disabled: false
+build	Setup Gradle	2026-01-20T01:37:15.9290669Z   cache-read-only: true
+build	Setup Gradle	2026-01-20T01:37:15.9290915Z   cache-write-only: false
+build	Setup Gradle	2026-01-20T01:37:15.9291177Z   cache-overwrite-existing: false
+build	Setup Gradle	2026-01-20T01:37:15.9291503Z   gradle-home-cache-includes: caches
+build	Setup Gradle	notifications
+build	Setup Gradle	
+build	Setup Gradle	2026-01-20T01:37:15.9291863Z   gradle-home-cache-cleanup: false
+build	Setup Gradle	2026-01-20T01:37:15.9292147Z   add-job-summary: always
+build	Setup Gradle	2026-01-20T01:37:15.9292411Z   add-job-summary-as-pr-comment: never
+build	Setup Gradle	2026-01-20T01:37:15.9292712Z   dependency-graph: disabled
+build	Setup Gradle	2026-01-20T01:37:15.9293005Z   dependency-graph-continue-on-failure: true
+build	Setup Gradle	2026-01-20T01:37:15.9293340Z   build-scan-publish: false
+build	Setup Gradle	2026-01-20T01:37:15.9293599Z   validate-wrappers: false
+build	Setup Gradle	2026-01-20T01:37:15.9293864Z   generate-job-summary: true
+build	Setup Gradle	2026-01-20T01:37:15.9294143Z   gradle-home-cache-strict-match: false
+build	Setup Gradle	2026-01-20T01:37:15.9294445Z   workflow-job-context: null
+build	Setup Gradle	2026-01-20T01:37:15.9294973Z   github-token: ***
+build	Setup Gradle	2026-01-20T01:37:15.9295206Z env:
+build	Setup Gradle	2026-01-20T01:37:15.9295523Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/x64
+build	Setup Gradle	2026-01-20T01:37:15.9296037Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/x64
+build	Setup Gradle	2026-01-20T01:37:15.9296431Z ##[endgroup]
+build	Setup Gradle	2026-01-20T01:37:17.4692030Z Merged default JDK locations into /home/runner/.m2/toolchains.xml
+build	Setup Gradle	2026-01-20T01:37:17.4694612Z ##[group]Restore Gradle state from cache
+build	Setup Gradle	2026-01-20T01:37:17.5444248Z ##[warning]Failed to restore gradle-home-v1|Linux|build[5df42585ae8f8da228c604b8b4e8707c]-a2245a772a01a89b1c87d099f41c6760e8ad8bd0: Error: Cache service responded with 400
+build	Setup Gradle	2026-01-20T01:37:17.5496456Z Gradle User Home cache not found. Will initialize empty.
+build	Setup Gradle	2026-01-20T01:37:17.5497792Z ##[endgroup]
+build	Build Debug APK	锘?026-01-20T01:37:17.5626100Z ##[group]Run gradle assembleDebug --no-daemon
+build	Build Debug APK	2026-01-20T01:37:17.5626494Z [36;1mgradle assembleDebug --no-daemon[0m
+build	Build Debug APK	2026-01-20T01:37:17.5662019Z shell: /usr/bin/bash -e {0}
+build	Build Debug APK	2026-01-20T01:37:17.5662301Z env:
+build	Build Debug APK	2026-01-20T01:37:17.5662585Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/x64
+build	Build Debug APK	2026-01-20T01:37:17.5663061Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/x64
+build	Build Debug APK	2026-01-20T01:37:17.5663456Z   GRADLE_ACTION_ID: gradle/actions/setup-gradle
+build	Build Debug APK	2026-01-20T01:37:17.5663752Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+build	Build Debug APK	2026-01-20T01:37:17.5664023Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+build	Build Debug APK	2026-01-20T01:37:17.5664435Z   DEVELOCITY_INJECTION_INIT_SCRIPT_NAME: gradle-actions.inject-develocity.init.gradle
+build	Build Debug APK	2026-01-20T01:37:17.5664949Z   DEVELOCITY_AUTO_INJECTION_CUSTOM_VALUE: gradle-actions
+build	Build Debug APK	2026-01-20T01:37:17.5665467Z   GITHUB_DEPENDENCY_GRAPH_ENABLED: false
+build	Build Debug APK	2026-01-20T01:37:17.5665716Z ##[endgroup]
+build	Build Debug APK	2026-01-20T01:37:22.2184774Z 
+build	Build Debug APK	2026-01-20T01:37:22.2186556Z Welcome to Gradle 9.2.1!
+build	Build Debug APK	2026-01-20T01:37:22.2188515Z 
+build	Build Debug APK	2026-01-20T01:37:22.2189070Z Here are the highlights of this release:
+build	Build Debug APK	2026-01-20T01:37:22.2190013Z  - Windows ARM support
+build	Build Debug APK	2026-01-20T01:37:22.2190776Z  - Improved publishing APIs
+build	Build Debug APK	2026-01-20T01:37:22.2193639Z  - Better guidance for dependency verification failures
+build	Build Debug APK	2026-01-20T01:37:22.2194235Z 
+build	Build Debug APK	2026-01-20T01:37:22.2195004Z For more details see https://docs.gradle.org/9.2.1/release-notes.html
+build	Build Debug APK	2026-01-20T01:37:22.2195814Z 
+build	Build Debug APK	2026-01-20T01:37:22.9862178Z To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+build	Build Debug APK	2026-01-20T01:37:26.9857016Z Daemon will be stopped at the end of the build 
+build	Build Debug APK	2026-01-20T01:39:15.5873644Z > Task :app:preBuild UP-TO-DATE
+build	Build Debug APK	2026-01-20T01:39:15.5882186Z > Task :app:preDebugBuild UP-TO-DATE
+build	Build Debug APK	2026-01-20T01:39:15.5883201Z > Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+build	Build Debug APK	2026-01-20T01:39:15.5884185Z > Task :app:checkKotlinGradlePluginConfigurationErrors
+build	Build Debug APK	2026-01-20T01:39:45.4878950Z > Task :app:checkDebugAarMetadata FAILED
+build	Build Debug APK	2026-01-20T01:39:45.5882767Z 
+build	Build Debug APK	2026-01-20T01:39:45.5883753Z FAILURE: Build failed with an exception.
+build	Build Debug APK	2026-01-20T01:39:45.5888615Z 
+build	Build Debug APK	2026-01-20T01:39:45.5894782Z * What went wrong:
+build	Build Debug APK	2026-01-20T01:39:45.5895275Z Execution failed for task ':app:checkDebugAarMetadata'.
+build	Build Debug APK	2026-01-20T01:39:45.5896644Z > Configuration `:app:debugRuntimeClasspath` contains AndroidX dependencies, but the `android.useAndroidX` property is not enabled, which may cause runtime issues.
+build	Build Debug APK	2026-01-20T01:39:45.5898299Z   Set `android.useAndroidX=true` in the `gradle.properties` file and retry.
+build	Build Debug APK	2026-01-20T01:39:45.5899008Z   The following AndroidX dependencies are detected:
+build	Build Debug APK	2026-01-20T01:39:45.5899714Z   :app:debugRuntimeClasspath -> androidx.compose.ui:ui-tooling:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.5900845Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-tooling-android:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.5902077Z   :app:debugRuntimeClasspath -> androidx.activity:activity-compose:1.8.2
+build	Build Debug APK	2026-01-20T01:39:45.5903389Z   :app:debugRuntimeClasspath -> androidx.activity:activity-compose:1.8.2 -> androidx.activity:activity:1.8.2 -> androidx.activity:activity-ktx:1.8.2
+build	Build Debug APK	2026-01-20T01:39:45.5905377Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-android:1.6.0 -> androidx.activity:activity-ktx:1.8.2 -> androidx.activity:activity:1.8.2
+build	Build Debug APK	2026-01-20T01:39:45.5906568Z 
+build	Build Debug APK	2026-01-20T01:39:45.5912205Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-android:1.6.0 -> androidx.activity:activity-ktx:1.8.2 -> androidx.activity:activity:1.8.2 -> androidx.annotation:annotation:1.7.0
+build	Build Debug APK	2026-01-20T01:39:45.5915545Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-android:1.6.0 -> androidx.activity:activity-ktx:1.8.2 -> androidx.activity:activity:1.8.2 -> androidx.annotation:annotation:1.7.0 -> androidx.annotation:annotation-jvm:1.7.0
+build	Build Debug APK	2026-01-20T01:39:45.5919455Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-android:1.6.0 -> androidx.activity:activity-ktx:1.8.2 -> androidx.activity:activity:1.8.2 -> androidx.collection:collection:1.4.0
+build	Build Debug APK	2026-01-20T01:39:45.5922510Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-android:1.6.0 -> androidx.activity:activity-ktx:1.8.2 -> androidx.activity:activity:1.8.2 -> androidx.collection:collection:1.4.0 -> androidx.collection:collection-jvm:1.4.0
+build	Build Debug APK	2026-01-20T01:39:45.5950161Z [Incubating] Problems report is available at: file:///home/runner/work/android_arm_controller/android_arm_controller/build/reports/problems/problems-report.html
+build	Build Debug APK	2026-01-20T01:39:45.5966807Z 
+build	Build Debug APK	2026-01-20T01:39:45.5970541Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-unit-android:1.6.0 -> androidx.collection:collection-ktx:1.4.0
+build	Build Debug APK	2026-01-20T01:39:45.5972991Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-android:1.6.0 -> androidx.activity:activity-ktx:1.8.2 -> androidx.activity:activity:1.8.2 -> androidx.core:core:1.12.0
+build	Build Debug APK	2026-01-20T01:39:45.5976058Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-android:1.6.0 -> androidx.activity:activity-ktx:1.8.2 -> androidx.activity:activity:1.8.2 -> androidx.core:core:1.12.0 -> androidx.annotation:annotation-experimental:1.3.0
+build	Build Debug APK	2026-01-20T01:39:45.5980505Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-android:1.6.0 -> androidx.activity:activity-ktx:1.8.2 -> androidx.activity:activity:1.8.2 -> androidx.core:core:1.12.0 -> androidx.concurrent:concurrent-futures:1.1.0
+build	Build Debug APK	2026-01-20T01:39:45.6013354Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-android:1.6.0 -> androidx.activity:activity-ktx:1.8.2 -> androidx.activity:activity:1.8.2 -> androidx.core:core:1.12.0 -> androidx.interpolator:interpolator:1.0.0
+build	Build Debug APK	2026-01-20T01:39:45.6015670Z   :app:debugRuntimeClasspath -> androidx.compose.material3:material3:1.1.2 -> androidx.lifecycle:lifecycle-runtime:2.7.0
+build	Build Debug APK	2026-01-20T01:39:45.6018456Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.foundation:foundation-android:1.6.0 -> androidx.emoji2:emoji2:1.3.0 -> androidx.lifecycle:lifecycle-process:2.7.0 -> androidx.lifecycle:lifecycle-livedata-core:2.7.0 -> androidx.arch.core:core-common:2.2.0
+build	Build Debug APK	2026-01-20T01:39:45.6022110Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.foundation:foundation-android:1.6.0 -> androidx.emoji2:emoji2:1.3.0 -> androidx.lifecycle:lifecycle-process:2.7.0 -> androidx.lifecycle:lifecycle-livedata-core:2.7.0 -> androidx.arch.core:core-runtime:2.2.0
+build	Build Debug APK	2026-01-20T01:39:45.6024861Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-tooling-android:1.6.0 -> androidx.lifecycle:lifecycle-common:2.7.0
+build	Build Debug APK	2026-01-20T01:39:45.6026584Z   :app:debugRuntimeClasspath -> androidx.compose.material3:material3:1.1.2 -> androidx.lifecycle:lifecycle-common-java8:2.7.0
+build	Build Debug APK	2026-01-20T01:39:45.6048244Z   :app:debugRuntimeClasspath -> androidx.lifecycle:lifecycle-runtime-ktx:2.7.0
+build	Build Debug APK	2026-01-20T01:39:45.6049526Z   :app:debugRuntimeClasspath -> androidx.compose.material3:material3:1.1.2 -> androidx.lifecycle:lifecycle-viewmodel:2.7.0
+build	Build Debug APK	2026-01-20T01:39:45.6050765Z   :app:debugRuntimeClasspath -> androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0
+build	Build Debug APK	2026-01-20T01:39:45.6051928Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.runtime:runtime:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6053301Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.runtime:runtime-android:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6054727Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.runtime:runtime-saveable:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6056650Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.runtime:runtime-saveable-android:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6061774Z   :app:debugRuntimeClasspath -> androidx.compose.ui:ui:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6062866Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-android:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6064480Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-android:1.6.0 -> androidx.autofill:autofill:1.0.0
+build	Build Debug APK	2026-01-20T01:39:45.6066064Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-geometry:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6067460Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-geometry-android:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6073204Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-util:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6074583Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-util-android:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6075692Z   :app:debugRuntimeClasspath -> androidx.compose.ui:ui-graphics:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6076822Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-graphics-android:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6078433Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-unit:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6079790Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-unit-android:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6081117Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-text:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6082457Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-text-android:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6084110Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.foundation:foundation-android:1.6.0 -> androidx.emoji2:emoji2:1.3.0
+build	Build Debug APK	2026-01-20T01:39:45.6086304Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.foundation:foundation-android:1.6.0 -> androidx.emoji2:emoji2:1.3.0 -> androidx.lifecycle:lifecycle-process:2.7.0
+build	Build Debug APK	2026-01-20T01:39:45.6089072Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.foundation:foundation-android:1.6.0 -> androidx.emoji2:emoji2:1.3.0 -> androidx.startup:startup-runtime:1.1.1
+build	Build Debug APK	2026-01-20T01:39:45.6091560Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-android:1.6.0 -> androidx.activity:activity-ktx:1.8.2 -> androidx.activity:activity:1.8.2 -> androidx.tracing:tracing:1.0.0
+build	Build Debug APK	2026-01-20T01:39:45.6094351Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.foundation:foundation-android:1.6.0 -> androidx.emoji2:emoji2:1.3.0 -> androidx.lifecycle:lifecycle-process:2.7.0 -> androidx.lifecycle:lifecycle-livedata-core:2.7.0
+build	Build Debug APK	2026-01-20T01:39:45.6097407Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.foundation:foundation-android:1.6.0 -> androidx.emoji2:emoji2:1.3.0 -> androidx.lifecycle:lifecycle-process:2.7.0 -> androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0
+build	Build Debug APK	2026-01-20T01:39:45.6100800Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-android:1.6.0 -> androidx.activity:activity-ktx:1.8.2 -> androidx.activity:activity:1.8.2 -> androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0
+build	Build Debug APK	2026-01-20T01:39:45.6103598Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-android:1.6.0 -> androidx.activity:activity-ktx:1.8.2 -> androidx.activity:activity:1.8.2 -> androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0 -> androidx.core:core-ktx:1.12.0
+build	Build Debug APK	2026-01-20T01:39:45.6106533Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-android:1.6.0 -> androidx.activity:activity-ktx:1.8.2 -> androidx.activity:activity:1.8.2 -> androidx.savedstate:savedstate:1.2.1
+build	Build Debug APK	2026-01-20T01:39:45.6108755Z   :app:debugRuntimeClasspath -> androidx.compose.material3:material3:1.1.2 -> androidx.savedstate:savedstate-ktx:1.2.1
+build	Build Debug APK	2026-01-20T01:39:45.6110202Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-tooling-data:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6111208Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-tooling-data-android:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6111860Z   :app:debugRuntimeClasspath -> androidx.compose.ui:ui-tooling-preview:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6112498Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-tooling-preview-android:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6113621Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-android:1.6.0 -> androidx.customview:customview-poolingcontainer:1.0.0
+build	Build Debug APK	2026-01-20T01:39:45.6114902Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-android:1.6.0 -> androidx.activity:activity-ktx:1.8.2 -> androidx.activity:activity:1.8.2 -> androidx.profileinstaller:profileinstaller:1.3.0
+build	Build Debug APK	2026-01-20T01:39:45.6116017Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.foundation:foundation:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6116782Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.foundation:foundation-android:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6118051Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.animation:animation:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6119543Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.animation:animation-android:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6121009Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.animation:animation-core:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6122504Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.animation:animation-core-android:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6123991Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.foundation:foundation-layout:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6125538Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.foundation:foundation-layout-android:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6128101Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.ui:ui-android:1.6.0 -> androidx.activity:activity-ktx:1.8.2 -> androidx.activity:activity:1.8.2 -> androidx.core:core:1.12.0 -> androidx.versionedparcelable:versionedparcelable:1.1.1
+build	Build Debug APK	2026-01-20T01:39:45.6130353Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.material:material:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6131747Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.material:material-android:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6133203Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.material:material-icons-core:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6134659Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.material:material-icons-core-android:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6135486Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.material:material-ripple:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6136275Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00 -> androidx.compose.material:material-ripple-android:1.6.0
+build	Build Debug APK	2026-01-20T01:39:45.6136911Z   :app:debugRuntimeClasspath -> androidx.compose:compose-bom:2024.01.00
+build	Build Debug APK	2026-01-20T01:39:45.6137371Z   :app:debugRuntimeClasspath -> androidx.compose.material3:material3:1.1.2
+build	Build Debug APK	2026-01-20T01:39:45.6138333Z 
+build	Build Debug APK	2026-01-20T01:39:45.6138442Z * Try:
+build	Build Debug APK	2026-01-20T01:39:45.6138800Z > Run with --stacktrace option to get the stack trace.
+build	Build Debug APK	2026-01-20T01:39:45.6139227Z > Run with --info or --debug option to get more log output.
+build	Build Debug APK	2026-01-20T01:39:45.6139603Z > Run with --scan to generate a Build Scan (powered by Develocity).
+build	Build Debug APK	2026-01-20T01:39:45.6139952Z > Get more help at https://help.gradle.org.
+build	Build Debug APK	2026-01-20T01:39:45.6140198Z 
+build	Build Debug APK	2026-01-20T01:39:45.6140274Z BUILD FAILED in 2m 27s
+build	Build Debug APK	2026-01-20T01:39:45.6140656Z Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+build	Build Debug APK	2026-01-20T01:39:45.6140998Z 
+build	Build Debug APK	2026-01-20T01:39:45.6141389Z You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+build	Build Debug APK	2026-01-20T01:39:45.6141869Z 
+build	Build Debug APK	2026-01-20T01:39:45.6142496Z For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+build	Build Debug APK	2026-01-20T01:39:45.6143123Z 2 actionable tasks: 2 executed
+build	Build Debug APK	2026-01-20T01:39:45.8072956Z ##[error]Process completed with exit code 1.
+build	Post Setup Gradle	锘?026-01-20T01:39:45.8222104Z Post job cleanup.
+build	Post Setup Gradle	2026-01-20T01:39:46.0690134Z In post-action step
+build	Post Setup Gradle	2026-01-20T01:39:46.0697448Z Cache is read-only: will not save state for use in subsequent builds.
+build	Post Setup Gradle	2026-01-20T01:39:46.0703179Z Generating Job Summary
+build	Post Setup Gradle	2026-01-20T01:39:46.0725683Z Completed post-action step
+build	Post Set up JDK 17	锘?026-01-20T01:39:46.0890021Z Post job cleanup.
+build	Post Run actions/checkout@v4	锘?026-01-20T01:39:46.2754003Z Post job cleanup.
+build	Post Run actions/checkout@v4	2026-01-20T01:39:46.3703164Z [command]/usr/bin/git version
+build	Post Run actions/checkout@v4	2026-01-20T01:39:46.3740342Z git version 2.52.0
+build	Post Run actions/checkout@v4	2026-01-20T01:39:46.3788823Z Temporarily overriding HOME='/home/runner/work/_temp/91d1c8f6-0481-49a9-8a26-96d99201dcf5' before making global git config changes
+build	Post Run actions/checkout@v4	2026-01-20T01:39:46.3790183Z Adding repository directory to the temporary git global config as a safe directory
+build	Post Run actions/checkout@v4	2026-01-20T01:39:46.3805300Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/android_arm_controller/android_arm_controller
+build	Post Run actions/checkout@v4	2026-01-20T01:39:46.3845164Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build	Post Run actions/checkout@v4	2026-01-20T01:39:46.3889246Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build	Post Run actions/checkout@v4	2026-01-20T01:39:46.4159535Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build	Post Run actions/checkout@v4	2026-01-20T01:39:46.4187393Z http.https://github.com/.extraheader
+build	Post Run actions/checkout@v4	2026-01-20T01:39:46.4202072Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+build	Post Run actions/checkout@v4	2026-01-20T01:39:46.4237969Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build	Post Run actions/checkout@v4	2026-01-20T01:39:46.4494225Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+build	Post Run actions/checkout@v4	2026-01-20T01:39:46.4530394Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+build	Complete job	锘?026-01-20T01:39:46.4913419Z Cleaning up orphan processes
