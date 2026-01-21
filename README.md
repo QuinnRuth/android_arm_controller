@@ -24,16 +24,22 @@
 2. 点击 Run
 
 ### 方式2: 命令行 (Gradle)
-```bash
-# 设置 Android SDK 路径
-export ANDROID_HOME=/path/to/android/sdk
-
-# 编译 Debug APK
-./gradlew assembleDebug
-
-# 产物位置
-# app/build/outputs/apk/debug/app-debug.apk
+Windows (PowerShell):
+```powershell
+cd E:\web\embedded\android_arm_controller
+.\gradlew.bat -v
+.\gradlew.bat assembleDebug
 ```
+
+macOS / Linux:
+```bash
+cd /path/to/android_arm_controller
+./gradlew -v
+./gradlew assembleDebug
+```
+
+产物位置：
+- `app/build/outputs/apk/debug/app-debug.apk`
 
 ### 方式3: GitHub Actions
 Push 到 GitHub 后自动编译，从 Releases 下载 APK。

@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.navigation.compose.rememberNavController
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -24,7 +25,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.aizhigu.armcontroller.data.AppDatabase
 import com.aizhigu.armcontroller.ui.ActionSequencerViewModel
 import com.aizhigu.armcontroller.ui.ActionSequencerViewModelFactory
-import com.aizhigu.armcontroller.ui.ArmControllerApp
+import com.aizhigu.armcontroller.ui.navigation.ArmNavHost
 import com.aizhigu.armcontroller.ui.theme.ArmControllerTheme
 import kotlinx.coroutines.*
 import java.io.IOException
@@ -66,11 +67,13 @@ class MainActivity : ComponentActivity() {
                         )
                     )
 
-                    ArmControllerApp(
+                    val navController = androidx.navigation.compose.rememberNavController()
+                    
+                    ArmNavHost(
+                        navController = navController,
                         viewModel = armViewModel,
                         sequencerViewModel = sequencerViewModel,
-                        bluetoothAdapter = bluetoothAdapter,
-                        onRequestPermissions = { requestBluetoothPermissions() }
+                        bluetoothAdapter = bluetoothAdapter
                     )
                 }
             }
