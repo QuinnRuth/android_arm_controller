@@ -54,6 +54,15 @@ class BleConnectionImpl(
             }
             return rxCharacteristic != null && txCharacteristic != null
         }
+
+        // Public wrapper for protected writeCharacteristic
+        // Public wrapper returning WriteRequest
+        fun writeRx(data: ByteArray) = 
+            writeCharacteristic(
+                rxCharacteristic,
+                data,
+                BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT
+            )
         
         override fun initialize() {
             // 设置通知回调
@@ -70,7 +79,6 @@ class BleConnectionImpl(
             txCharacteristic = null
         }
         
-        fun getRxCharacteristic(): BluetoothGattCharacteristic? = rxCharacteristic
     }
     
     override suspend fun connect(): Boolean {
@@ -109,14 +117,8 @@ class BleConnectionImpl(
     }
     
     private suspend fun sendBytes(data: ByteArray): Boolean {
-        val rxChar = bleManager.getRxCharacteristic() ?: return false
-        
         return try {
-            bleManager.writeCharacteristic(
-                rxChar,
-                data,
-                BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT
-            ).suspend()
+            bleManager.writeRx(data).suspend()
             true
         } catch (e: Exception) {
             false

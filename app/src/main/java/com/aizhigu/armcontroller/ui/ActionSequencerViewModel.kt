@@ -105,7 +105,7 @@ class ActionSequencerViewModel(
         viewModelScope.launch {
             _currentProject.value?.let { proj ->
                 val updated = proj.copy(frames = _frames.value)
-                actionDao.insertProject(updated)
+                actionDao.insertProject(updated.toEntity())
                 _currentProject.value = updated
             }
         }
