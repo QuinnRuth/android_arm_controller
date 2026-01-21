@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp")
+    id("org.jetbrains.kotlin.plugin.serialization")
 }
 android {
     namespace = "com.aizhigu.armcontroller"
@@ -13,6 +14,8 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
+        
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -38,6 +41,12 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.8"
     }
+    
+    testOptions {
+        unitTests.all {
+            it.useJUnitPlatform()
+        }
+    }
 }
 
 dependencies {
@@ -60,6 +69,16 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     implementation("com.google.code.gson:gson:2.10.1")
     
+    // BLE - Nordic Semiconductor Library (multi-device support)
+    implementation("no.nordicsemi.android:ble:2.7.0")
+    implementation("no.nordicsemi.android:ble-ktx:2.7.0")
+    
+    // WiFi - OkHttp WebSocket
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    
+    // JSON Serialization
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2")
+    
     debugImplementation("androidx.compose.ui:ui-tooling:$composeUiVersion")
 
     // Room Database
@@ -67,4 +86,17 @@ dependencies {
     implementation("androidx.room:room-runtime:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
     ksp("androidx.room:room-compiler:$roomVersion")
+    
+    // Testing dependencies
+    testImplementation("io.kotest:kotest-runner-junit5:5.8.0")
+    testImplementation("io.kotest:kotest-assertions-core:5.8.0")
+    testImplementation("io.kotest:kotest-property:5.8.0")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    testImplementation("io.mockk:mockk:1.13.8")
+    testImplementation("junit:junit:4.13.2")
+    
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:$composeUiVersion")
+    androidTestImplementation("androidx.room:room-testing:$roomVersion")
 }
