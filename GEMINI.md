@@ -20,3 +20,9 @@
 - **Compose**: Material 3
 - **Navigation**: 2.7.7 (Added for Phase 2 UI)
 - **BLE**: Nordic Android BLE Library 2.7.0
+
+## 🚀 Phase 2 Features (Completed)
+- **Navigation**: Implemented `ArmNavHost` with `Connection`, `Dashboard`, `Sequencer` screens.
+- **Connection Manager**: Unified `ConnectionManager` handling both BLE and WiFi.
+- **WiFi Support**: Added `WifiConnectionImpl` and UI in `ConnectionScreen`.
+- **Reactive UI**: `ArmViewModel` now exposes reactive `isConnected` and `connectedDeviceName` states based on `ConnectionManager`.

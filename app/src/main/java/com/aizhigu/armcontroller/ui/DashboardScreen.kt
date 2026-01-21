@@ -15,6 +15,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.ui.text.input.KeyboardType
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -163,11 +165,26 @@ fun ServoSlider(
                     text = "轴$servoIndex: $name",
                     fontWeight = FontWeight.Medium
                 )
-                Text(
-                    text = "$value μs",
-                    color = MaterialTheme.colorScheme.primary,
-                    fontWeight = FontWeight.Bold
-                )
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    var textValue by remember(value) { mutableStateOf(value.toString()) }
+                    OutlinedTextField(
+                        value = textValue,
+                        onValueChange = { newText ->
+                            textValue = newText
+                            newText.toIntOrNull()?.let { num ->
+                                if (num in 500..2500) onValueChange(num)
+                            }
+                        },
+                        modifier = Modifier.width(80.dp),
+                        singleLine = true,
+                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                        textStyle = LocalTextStyle.current.copy(
+                            fontWeight = FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.primary
+                        )
+                    )
+                    Text(" μs", fontWeight = FontWeight.Bold)
+                }
             }
             
             Slider(

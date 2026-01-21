@@ -8,7 +8,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.aizhigu.armcontroller.connection.BleConnectionImpl
+import com.aizhigu.armcontroller.connection.ClassicBluetoothConnectionImpl
 import com.aizhigu.armcontroller.connection.WifiConnectionImpl
 import com.aizhigu.armcontroller.connection.ConnectionManager
 import com.aizhigu.armcontroller.connection.ConnectionState
@@ -88,7 +88,7 @@ class ArmViewModel : ViewModel() {
     
     fun connectToDevice(device: BluetoothDevice, context: Context) {
         viewModelScope.launch {
-            val connection = BleConnectionImpl(context, device)
+            val connection = ClassicBluetoothConnectionImpl(device)
             connectionManager.addConnection(connection)
         }
     }
