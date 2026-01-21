@@ -94,7 +94,7 @@ class BleScanner(private val context: Context) {
         }
         
         try {
-            scanner.startScan(null, settings, callback)
+            scanner.startScan(emptyList(), settings, callback)
         } catch (e: SecurityException) {
             close(e)
             return@callbackFlow

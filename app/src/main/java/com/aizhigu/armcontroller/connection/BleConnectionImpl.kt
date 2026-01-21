@@ -57,7 +57,7 @@ class BleConnectionImpl(
         
         override fun initialize() {
             // 设置通知回调
-            setNotificationCallback(txCharacteristic).with { _, data ->
+            setNotificationCallback(txCharacteristic).with { device, data ->
                 data.value?.let { bytes ->
                     onDataReceivedCallback?.invoke(bytes)
                 }
