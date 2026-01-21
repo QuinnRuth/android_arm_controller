@@ -10,16 +10,15 @@ import com.google.gson.reflect.TypeToken
 
 // Domain Models
 data class ActionFrame(
-    val sequenceId: Int,
+    val sequenceId: Int = 0,
     val duration: Int,  // milliseconds, clamped to 500-5000
-    val servos: Map<Int, Int>,  // servo index (1-6) to PWM (500-2500)
+    val servos: List<Int>,  // servo PWM values (500-2500) for indices 0-5 (servos 1-6)
     val soundId: Int? = null  // MP3 track ID (1-255)
 ) {
     init {
         require(duration in 500..5000) { "Duration must be 500-5000ms" }
         require(servos.size == 6) { "Must have exactly 6 servo positions" }
-        servos.forEach { (index, pwm) ->
-            require(index in 1..6) { "Servo index must be 1-6" }
+        servos.forEach { pwm ->
             require(pwm in 500..2500) { "PWM must be 500-2500" }
         }
         soundId?.let { require(it in 1..255) { "Sound ID must be 1-255" } }
@@ -84,11 +83,11 @@ object ActionFrameFactory {
     fun create(
         sequenceId: Int,
         duration: Int,
-        servos: Map<Int, Int>,
+        servos: List<Int>,
         soundId: Int? = null
     ): ActionFrame {
         val clampedDuration = duration.coerceIn(500, 5000)
-        val clampedServos = servos.mapValues { (_, pwm) -> pwm.coerceIn(500, 2500) }
+        val clampedServos = servos.map { it.coerceIn(500, 2500) }
         val clampedSoundId = soundId?.coerceIn(1, 255)
         
         return ActionFrame(sequenceId, clampedDuration, clampedServos, clampedSoundId)
@@ -118,13 +117,8 @@ fun ActionProject.toEntity(): ActionProjectEntity {
 }
 
 fun ActionFrameEntity.toDomainModel(): ActionFrame {
-    val servos = mapOf(
-        1 to servo1,
-        2 to servo2,
-        3 to servo3,
-        4 to servo4,
-        5 to servo5,
-        6 to servo6
+    val servos = listOf(
+        servo1, servo2, servo3, servo4, servo5, servo6
     )
     return ActionFrame(
         sequenceId = sequenceId,
@@ -139,12 +133,12 @@ fun ActionFrame.toEntity(projectId: Long): ActionFrameEntity {
         projectId = projectId,
         sequenceId = sequenceId,
         duration = duration,
-        servo1 = servos[1] ?: 1500,
-        servo2 = servos[2] ?: 1500,
-        servo3 = servos[3] ?: 1500,
-        servo4 = servos[4] ?: 1500,
-        servo5 = servos[5] ?: 1500,
-        servo6 = servos[6] ?: 1500,
+        servo1 = servos.getOrElse(0) { 1500 },
+        servo2 = servos.getOrElse(1) { 1500 },
+        servo3 = servos.getOrElse(2) { 1500 },
+        servo4 = servos.getOrElse(3) { 1500 },
+        servo5 = servos.getOrElse(4) { 1500 },
+        servo6 = servos.getOrElse(5) { 1500 },
         soundId = soundId
     )
 }
