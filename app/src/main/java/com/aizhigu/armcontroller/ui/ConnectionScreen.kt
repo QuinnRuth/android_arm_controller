@@ -16,7 +16,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.aizhigu.armcontroller.ArmViewModel
+
 
 @SuppressLint("MissingPermission")
 @OptIn(ExperimentalMaterial3Api::class)
@@ -27,6 +27,7 @@ fun ConnectionScreen(
     onNavigateToDashboard: () -> Unit
 ) {
     var isScanning by remember { mutableStateOf(false) }
+    val context = androidx.compose.ui.platform.LocalContext.current
     
     // Get paired devices
     val pairedDevices = remember(bluetoothAdapter) {
@@ -128,17 +129,17 @@ fun ConnectionScreen(
                         )
                     }
                 } else {
-                    items(pairedDevices) { device ->
-                        DeviceListItem(
-                            device = device,
-                            isConnected = viewModel.isConnected && viewModel.connectedDeviceName == device.name,
-                            onClick = {
-                                viewModel.connectToDevice(device)
-                                // Optional: Auto-navigate if connection logic was callback-based. 
-                                // Since it's async in VM, user manually clicks "Enter Dashboard" or we observe VM state.
+                            items(pairedDevices) { device ->
+                                DeviceListItem(
+                                    device = device,
+                                    isConnected = viewModel.isConnected && viewModel.connectedDeviceName == device.name,
+                                    onClick = {
+                                        viewModel.connectToDevice(device, context)
+                                        // Optional: Auto-navigate if connection logic was callback-based. 
+                                        // Since it's async in VM, user manually clicks "Enter Dashboard" or we observe VM state.
+                                    }
+                                )
                             }
-                        )
-                    }
                 }
             }
         }

@@ -5,7 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.aizhigu.armcontroller.ArmViewModel
+import com.aizhigu.armcontroller.ui.ArmViewModel
 import com.aizhigu.armcontroller.ui.ActionSequencerViewModel
 import com.aizhigu.armcontroller.ui.ConnectionScreen
 import com.aizhigu.armcontroller.ui.DashboardScreen
