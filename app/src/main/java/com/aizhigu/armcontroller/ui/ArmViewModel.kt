@@ -2,14 +2,18 @@ package com.aizhigu.armcontroller.ui
 
 import android.content.Context
 import android.bluetooth.BluetoothDevice
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.aizhigu.armcontroller.connection.BleConnectionImpl
+import com.aizhigu.armcontroller.connection.WifiConnectionImpl
 import com.aizhigu.armcontroller.connection.ConnectionManager
 import com.aizhigu.armcontroller.connection.ConnectionState
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -20,11 +24,31 @@ class ArmViewModel : ViewModel() {
     var servoValues = mutableStateListOf(1500, 1500, 1500, 1500, 1500, 1500)
         private set
     
-    val isConnected: Boolean
-        get() = connectionManager.getActiveDevice()?.connectionState?.value == ConnectionState.CONNECTED
+    var isConnected by mutableStateOf(false)
+        private set
 
-    val connectedDeviceName: String
-        get() = connectionManager.getActiveDevice()?.deviceInfo?.name ?: ""
+    var connectedDeviceName by mutableStateOf("")
+        private set
+
+    init {
+        // Monitor active device state for UI updates
+        viewModelScope.launch {
+            connectionManager.activeDeviceId.collectLatest { activeId ->
+                if (activeId == null) {
+                    isConnected = false
+                    connectedDeviceName = ""
+                } else {
+                    val device = connectionManager.getActiveDevice()
+                    if (device != null) {
+                        connectedDeviceName = device.deviceInfo.name
+                        device.connectionState.collectLatest { state ->
+                            isConnected = state == ConnectionState.CONNECTED
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     fun updateServo(index: Int, value: Int) {
         val clampedValue = value.coerceIn(500, 2500)
@@ -65,6 +89,13 @@ class ArmViewModel : ViewModel() {
     fun connectToDevice(device: BluetoothDevice, context: Context) {
         viewModelScope.launch {
             val connection = BleConnectionImpl(context, device)
+            connectionManager.addConnection(connection)
+        }
+    }
+
+    fun connectToWifi(host: String, port: Int = 81) {
+        viewModelScope.launch {
+            val connection = WifiConnectionImpl(host, port)
             connectionManager.addConnection(connection)
         }
     }

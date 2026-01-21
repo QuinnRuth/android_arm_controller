@@ -110,6 +110,44 @@ fun ConnectionScreen(
                     Text("扫描设备")
                 }
             }
+            
+            // WiFi Connection
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
+            ) {
+                Column(
+                    modifier = Modifier.padding(16.dp),
+                    verticalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
+                    Text("WiFi 连接", style = MaterialTheme.typography.titleSmall)
+                    
+                    var ipAddress by remember { mutableStateOf("192.168.4.1") }
+                    
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        OutlinedTextField(
+                            value = ipAddress,
+                            onValueChange = { ipAddress = it },
+                            label = { Text("IP 地址") },
+                            modifier = Modifier.weight(1f),
+                            singleLine = true
+                        )
+                        
+                        Button(
+                            onClick = { 
+                                viewModel.connectToWifi(ipAddress) 
+                            },
+                            enabled = !viewModel.isConnected
+                        ) {
+                            Text("连接")
+                        }
+                    }
+                }
+            }
 
             Text(
                 "已配对设备",
