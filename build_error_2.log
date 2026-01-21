@@ -1,0 +1,113 @@
+build	Build Debug APK	﻿2026-01-21T02:30:54.7446180Z ##[group]Run gradle assembleDebug --no-daemon
+build	Build Debug APK	2026-01-21T02:30:54.7446588Z [36;1mgradle assembleDebug --no-daemon[0m
+build	Build Debug APK	2026-01-21T02:30:54.7480512Z shell: /usr/bin/bash -e {0}
+build	Build Debug APK	2026-01-21T02:30:54.7480767Z env:
+build	Build Debug APK	2026-01-21T02:30:54.7481056Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/x64
+build	Build Debug APK	2026-01-21T02:30:54.7481522Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/x64
+build	Build Debug APK	2026-01-21T02:30:54.7481917Z   ANDROID_HOME: /usr/local/lib/android/sdk
+build	Build Debug APK	2026-01-21T02:30:54.7482184Z   ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
+build	Build Debug APK	2026-01-21T02:30:54.7482481Z   GRADLE_ACTION_ID: gradle/actions/setup-gradle
+build	Build Debug APK	2026-01-21T02:30:54.7482754Z   GRADLE_USER_HOME: /home/runner/.gradle
+build	Build Debug APK	2026-01-21T02:30:54.7483023Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+build	Build Debug APK	2026-01-21T02:30:54.7483293Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+build	Build Debug APK	2026-01-21T02:30:54.7483688Z   DEVELOCITY_INJECTION_INIT_SCRIPT_NAME: gradle-actions.inject-develocity.init.gradle
+build	Build Debug APK	2026-01-21T02:30:54.7484136Z   DEVELOCITY_INJECTION_CUSTOM_VALUE: gradle-actions
+build	Build Debug APK	2026-01-21T02:30:54.7484462Z   GITHUB_DEPENDENCY_GRAPH_ENABLED: false
+build	Build Debug APK	2026-01-21T02:30:54.7484699Z ##[endgroup]
+build	Build Debug APK	2026-01-21T02:30:55.2146355Z 
+build	Build Debug APK	2026-01-21T02:30:55.2148162Z Welcome to Gradle 8.4!
+build	Build Debug APK	2026-01-21T02:30:55.2150501Z 
+build	Build Debug APK	2026-01-21T02:30:55.2156801Z Here are the highlights of this release:
+build	Build Debug APK	2026-01-21T02:30:55.2159351Z  - Compiling and testing with Java 21
+build	Build Debug APK	2026-01-21T02:30:55.2165368Z  - Faster Java compilation on Windows
+build	Build Debug APK	2026-01-21T02:30:55.2166097Z  - Role focused dependency configurations creation
+build	Build Debug APK	2026-01-21T02:30:55.2166510Z 
+build	Build Debug APK	2026-01-21T02:30:55.2169618Z For more details see https://docs.gradle.org/8.4/release-notes.html
+build	Build Debug APK	2026-01-21T02:30:55.2170697Z 
+build	Build Debug APK	2026-01-21T02:30:55.3144796Z To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.4/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+build	Build Debug APK	2026-01-21T02:30:56.5133012Z Daemon will be stopped at the end of the build 
+build	Build Debug APK	2026-01-21T02:32:21.0155916Z > Task :app:preBuild UP-TO-DATE
+build	Build Debug APK	2026-01-21T02:32:21.0156898Z > Task :app:preDebugBuild UP-TO-DATE
+build	Build Debug APK	2026-01-21T02:32:21.0157766Z > Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+build	Build Debug APK	2026-01-21T02:32:21.0161044Z > Task :app:checkKotlinGradlePluginConfigurationErrors
+build	Build Debug APK	2026-01-21T02:32:51.0131165Z > Task :app:checkDebugAarMetadata
+build	Build Debug APK	2026-01-21T02:33:06.9171653Z > Task :app:generateDebugResValues
+build	Build Debug APK	2026-01-21T02:33:07.0132162Z > Task :app:mapDebugSourceSetPaths
+build	Build Debug APK	2026-01-21T02:33:07.0138854Z > Task :app:generateDebugResources
+build	Build Debug APK	2026-01-21T02:33:08.5130952Z > Task :app:packageDebugResources
+build	Build Debug APK	2026-01-21T02:33:08.6132400Z > Task :app:mergeDebugResources
+build	Build Debug APK	2026-01-21T02:33:09.6142352Z > Task :app:createDebugCompatibleScreenManifests
+build	Build Debug APK	2026-01-21T02:33:09.6151091Z > Task :app:extractDeepLinksDebug
+build	Build Debug APK	2026-01-21T02:33:09.8133618Z > Task :app:parseDebugLocalResources
+build	Build Debug APK	2026-01-21T02:33:10.0139267Z > Task :app:processDebugMainManifest
+build	Build Debug APK	2026-01-21T02:33:10.1131049Z > Task :app:processDebugManifest
+build	Build Debug APK	2026-01-21T02:33:15.4161811Z > Task :app:javaPreCompileDebug
+build	Build Debug APK	2026-01-21T02:33:15.4162689Z > Task :app:mergeDebugShaders
+build	Build Debug APK	2026-01-21T02:33:15.4163452Z > Task :app:compileDebugShaders NO-SOURCE
+build	Build Debug APK	2026-01-21T02:33:15.4164252Z > Task :app:generateDebugAssets UP-TO-DATE
+build	Build Debug APK	2026-01-21T02:33:15.5154197Z > Task :app:mergeDebugAssets
+build	Build Debug APK	2026-01-21T02:33:15.5156511Z > Task :app:compressDebugAssets
+build	Build Debug APK	2026-01-21T02:33:15.5175622Z > Task :app:desugarDebugFileDependencies
+build	Build Debug APK	2026-01-21T02:33:17.6132920Z > Task :app:mergeDebugJniLibFolders
+build	Build Debug APK	2026-01-21T02:33:17.6134286Z > Task :app:checkDebugDuplicateClasses
+build	Build Debug APK	2026-01-21T02:33:17.7145430Z > Task :app:mergeDebugNativeLibs NO-SOURCE
+build	Build Debug APK	2026-01-21T02:33:40.1131391Z > Task :app:processDebugManifestForPackage
+build	Build Debug APK	2026-01-21T02:33:47.6131494Z > Task :app:mergeExtDexDebug
+build	Build Debug APK	2026-01-21T02:34:33.8132425Z > Task :app:stripDebugDebugSymbols NO-SOURCE
+build	Build Debug APK	2026-01-21T02:34:33.8133109Z > Task :app:mergeLibDexDebug
+build	Build Debug APK	2026-01-21T02:34:34.2130628Z > Task :app:processDebugResources
+build	Build Debug APK	2026-01-21T02:34:35.3133839Z > Task :app:validateSigningDebug
+build	Build Debug APK	2026-01-21T02:34:45.7131526Z > Task :app:writeDebugAppMetadata
+build	Build Debug APK	2026-01-21T02:34:45.7137038Z > Task :app:writeDebugSigningConfigVersions
+build	Build Debug APK	2026-01-21T02:34:51.4135469Z 
+build	Build Debug APK	2026-01-21T02:34:51.4159974Z > Task :app:kspDebugKotlin
+build	Build Debug APK	2026-01-21T02:34:51.4163553Z w: [ksp] /home/runner/work/android_arm_controller/android_arm_controller/app/src/main/java/com/aizhigu/armcontroller/data/ActionEntities.kt:68: projectId column references a foreign key but it is not part of an index. This may trigger full table scans whenever parent table is modified so you are highly advised to create an index that covers this column.
+build	Build Debug APK	2026-01-21T02:34:59.2143760Z e: file:///home/runner/work/android_arm_controller/android_arm_controller/app/src/main/java/com/aizhigu/armcontroller/connection/BleConnectionImpl.kt:115:24 Cannot access 'writeCharacteristic': it is protected in '<no name provided>'
+build	Build Debug APK	2026-01-21T02:34:59.2145571Z 
+build	Build Debug APK	2026-01-21T02:34:59.2147541Z e: file:///home/runner/work/android_arm_controller/android_arm_controller/app/src/main/java/com/aizhigu/armcontroller/data/ToxParser.kt:39:26 Type mismatch: inferred type is List<Int> but Map<Int, Int> was expected
+build	Build Debug APK	2026-01-21T02:34:59.2150857Z e: file:///home/runner/work/android_arm_controller/android_arm_controller/app/src/main/java/com/aizhigu/armcontroller/data/ToxParser.kt:40:17 No value passed for parameter 'sequenceId'
+build	Build Debug APK	2026-01-21T02:34:59.2154258Z e: file:///home/runner/work/android_arm_controller/android_arm_controller/app/src/main/java/com/aizhigu/armcontroller/ui/ActionSequencerViewModel.kt:108:41 Type mismatch: inferred type is ActionProject but ActionProjectEntity was expected
+build	Build Debug APK	2026-01-21T02:34:59.2158177Z e: file:///home/runner/work/android_arm_controller/android_arm_controller/app/src/main/java/com/aizhigu/armcontroller/ui/ActionSequencerViewModel.kt:128:22 Type mismatch: inferred type is List<Int> but Map<Int, Int> was expected
+build	Build Debug APK	2026-01-21T02:34:59.2161610Z e: file:///home/runner/work/android_arm_controller/android_arm_controller/app/src/main/java/com/aizhigu/armcontroller/ui/ActionSequencerViewModel.kt:129:13 No value passed for parameter 'sequenceId'
+build	Build Debug APK	2026-01-21T02:34:59.2165419Z e: file:///home/runner/work/android_arm_controller/android_arm_controller/app/src/main/java/com/aizhigu/armcontroller/ui/ActionSequencerViewModel.kt:212:22 Unresolved reference. None of the following candidates is applicable because of receiver type mismatch: 
+build	Build Debug APK	2026-01-21T02:34:59.2175431Z public inline fun <T> Array<out TypeVariable(T)>.forEachIndexed(action: (index: Int, TypeVariable(T)) -> Unit): Unit defined in kotlin.collections
+build	Build Debug APK	2026-01-21T02:34:59.2177207Z public inline fun BooleanArray.forEachIndexed(action: (index: Int, Boolean) -> Unit): Unit defined in kotlin.collections
+build	Build Debug APK	2026-01-21T02:34:59.2178585Z > Task :app:compileDebugKotlin FAILED
+build	Build Debug APK	2026-01-21T02:34:59.2179806Z public inline fun ByteArray.forEachIndexed(action: (index: Int, Byte) -> Unit): Unit defined in kotlin.collections
+build	Build Debug APK	2026-01-21T02:34:59.2183657Z public inline fun CharArray.forEachIndexed(action: (index: Int, Char) -> Unit): Unit defined in kotlin.collections
+build	Build Debug APK	2026-01-21T02:34:59.2185338Z public inline fun CharSequence.forEachIndexed(action: (index: Int, Char) -> Unit): Unit defined in kotlin.text
+build	Build Debug APK	2026-01-21T02:34:59.2187009Z public inline fun DoubleArray.forEachIndexed(action: (index: Int, Double) -> Unit): Unit defined in kotlin.collections
+build	Build Debug APK	2026-01-21T02:34:59.2188976Z public inline fun FloatArray.forEachIndexed(action: (index: Int, Float) -> Unit): Unit defined in kotlin.collections
+build	Build Debug APK	2026-01-21T02:34:59.2190649Z public inline fun IntArray.forEachIndexed(action: (index: Int, Int) -> Unit): Unit defined in kotlin.collections
+build	Build Debug APK	2026-01-21T02:34:59.2192301Z public inline fun LongArray.forEachIndexed(action: (index: Int, Long) -> Unit): Unit defined in kotlin.collections
+build	Build Debug APK	2026-01-21T02:34:59.2193994Z public inline fun ShortArray.forEachIndexed(action: (index: Int, Short) -> Unit): Unit defined in kotlin.collections
+build	Build Debug APK	2026-01-21T02:34:59.2195712Z public inline fun UByteArray.forEachIndexed(action: (index: Int, UByte) -> Unit): Unit defined in kotlin.collections
+build	Build Debug APK	2026-01-21T02:34:59.2198042Z public inline fun UIntArray.forEachIndexed(action: (index: Int, UInt) -> Unit): Unit defined in kotlin.collections
+build	Build Debug APK	2026-01-21T02:34:59.2199771Z public inline fun ULongArray.forEachIndexed(action: (index: Int, ULong) -> Unit): Unit defined in kotlin.collections
+build	Build Debug APK	2026-01-21T02:34:59.2201490Z public inline fun UShortArray.forEachIndexed(action: (index: Int, UShort) -> Unit): Unit defined in kotlin.collections
+build	Build Debug APK	2026-01-21T02:34:59.2203462Z public inline fun <T> Iterable<TypeVariable(T)>.forEachIndexed(action: (index: Int, TypeVariable(T)) -> Unit): Unit defined in kotlin.collections
+build	Build Debug APK	2026-01-21T02:34:59.2205555Z public inline fun <T> Sequence<TypeVariable(T)>.forEachIndexed(action: (index: Int, TypeVariable(T)) -> Unit): Unit defined in kotlin.sequences
+build	Build Debug APK	2026-01-21T02:34:59.2208772Z e: file:///home/runner/work/android_arm_controller/android_arm_controller/app/src/main/java/com/aizhigu/armcontroller/ui/ActionSequencerViewModel.kt:212:39 Cannot infer a type for this parameter. Please specify it explicitly.
+build	Build Debug APK	2026-01-21T02:34:59.2212329Z e: file:///home/runner/work/android_arm_controller/android_arm_controller/app/src/main/java/com/aizhigu/armcontroller/ui/ActionSequencerViewModel.kt:212:46 Cannot infer a type for this parameter. Please specify it explicitly.
+build	Build Debug APK	2026-01-21T02:34:59.2215647Z e: file:///home/runner/work/android_arm_controller/android_arm_controller/app/src/main/java/com/aizhigu/armcontroller/ui/SequencerScreen.kt:262:71 Type mismatch: inferred type is Int? but Int was expected
+build	Build Debug APK	2026-01-21T02:34:59.2219017Z e: file:///home/runner/work/android_arm_controller/android_arm_controller/app/src/main/java/com/aizhigu/armcontroller/ui/SequencerScreen.kt:262:132 Type mismatch: inferred type is Int? but Int was expected
+build	Build Debug APK	2026-01-21T02:34:59.2222315Z e: file:///home/runner/work/android_arm_controller/android_arm_controller/app/src/main/java/com/aizhigu/armcontroller/ui/SequencerScreen.kt:285:65 Type mismatch: inferred type is Map.Entry<Int, Int> but Int was expected
+build	Build Debug APK	2026-01-21T02:34:59.2225693Z e: file:///home/runner/work/android_arm_controller/android_arm_controller/app/src/main/java/com/aizhigu/armcontroller/ui/SequencerScreen.kt:373:83 Type mismatch: inferred type is List<Int> but Map<Int, Int> was expected
+build	Build Debug APK	2026-01-21T02:34:59.2228267Z gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1768962660684.json
+build	Build Debug APK	2026-01-21T02:34:59.3147699Z 
+build	Build Debug APK	2026-01-21T02:34:59.3169023Z FAILURE: Build failed with an exception.
+build	Build Debug APK	2026-01-21T02:34:59.3169685Z 
+build	Build Debug APK	2026-01-21T02:34:59.3170044Z * What went wrong:
+build	Build Debug APK	2026-01-21T02:34:59.3170585Z Execution failed for task ':app:compileDebugKotlin'.
+build	Build Debug APK	2026-01-21T02:34:59.3172168Z > A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+build	Build Debug APK	2026-01-21T02:34:59.3173503Z    > Compilation error. See log for more details
+build	Build Debug APK	2026-01-21T02:34:59.3173866Z 
+build	Build Debug APK	2026-01-21T02:34:59.3173975Z * Try:
+build	Build Debug APK	2026-01-21T02:34:59.3174436Z > Run with --stacktrace option to get the stack trace.
+build	Build Debug APK	2026-01-21T02:34:59.3175182Z > Run with --info or --debug option to get more log output.
+build	Build Debug APK	2026-01-21T02:34:59.3175798Z > Run with --scan to get full insights.
+build	Build Debug APK	2026-01-21T02:34:59.3176378Z > Get more help at https://help.gradle.org.
+build	Build Debug APK	2026-01-21T02:34:59.3176733Z 
+build	Build Debug APK	2026-01-21T02:34:59.3176924Z BUILD FAILED in 4m 4s
+build	Build Debug APK	2026-01-21T02:34:59.3177458Z 27 actionable tasks: 27 executed
+build	Build Debug APK	2026-01-21T02:34:59.7192743Z ##[error]Process completed with exit code 1.

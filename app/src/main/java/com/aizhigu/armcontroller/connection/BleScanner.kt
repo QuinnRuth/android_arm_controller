@@ -5,6 +5,7 @@ import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothManager
 import android.bluetooth.le.ScanCallback
+import android.bluetooth.le.ScanFilter
 import android.bluetooth.le.ScanResult
 import android.bluetooth.le.ScanSettings
 import android.content.Context
@@ -94,7 +95,7 @@ class BleScanner(private val context: Context) {
         }
         
         try {
-            scanner.startScan(emptyList(), settings, callback)
+            scanner.startScan(emptyList<ScanFilter>(), settings, callback)
         } catch (e: SecurityException) {
             close(e)
             return@callbackFlow
